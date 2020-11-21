@@ -3,3 +3,4 @@
 /.vscode
 /store.egg-info
 /.pytest_cache
+store.db

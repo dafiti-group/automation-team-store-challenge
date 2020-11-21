@@ -2,5 +2,4 @@ install:
 	pip3 install .
 
 test:
-	pytest tests/ -v
-	
+	FLASK_ENV=test pytest tests/ -v
