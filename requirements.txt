@@ -1,4 +1,5 @@
 dynaconf
+requests
 flask
 flask_sqlalchemy
 flask-migrate

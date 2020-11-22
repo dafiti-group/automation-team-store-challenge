@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>{{ title }}</title>
+    <link rel="shortcut icon" type="png" href="{{url_for('.static', filename='icons/favicon.png')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='plugins/bootstrap/bootstrap.min.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">{{ title }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">List<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Insert</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Update</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Delete</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+        {%for element in json%}
+          <tr>
+            <th scope="row">{{element.id}}</th>
+            <td>{{element.name}}</td>
+            <td>{{element.price}}</td>
+            <td>{{element.description}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script src="{{url_for('.static', filename='plugins/bootstrap/bootstrap.min.js')}}"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ from store.extensions import database
 from store.extensions import serealizer
 
 from store.blueprints import api
+from store.blueprints import webui
 
 def create_app():
     """Main Factory"""
@@ -16,4 +17,5 @@ def create_app():
     commands.init_app(app)
 
     api.init_app(app)
+    webui.init_app(app)
     return app
