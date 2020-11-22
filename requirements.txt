@@ -1,5 +1,6 @@
 dynaconf
 requests
+gunicorn
 flask
 flask_sqlalchemy
 flask-migrate
