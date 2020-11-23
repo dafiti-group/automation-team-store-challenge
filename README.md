@@ -4,6 +4,9 @@ This project aims to participate in the selection process of the company Dafiti
 
 ### Description
 The design goal is to have a backend with tools to help deliver an API and a frontend that consumes this API.
+The application creation followed the Application Factory architecture model, where all external libraries used in the project were organized in a specific directory (Extensions) and all internal business rule of the application organized in another directory (Blueprints).
+
+With this, the base of the application is organized in a single file named app.py. It has a main factory that will deliver the application concept, and each line in it will call the initializers of extensions and blueprints.
 
 ## Requirements
 - Python 3.8.x installed.
