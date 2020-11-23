@@ -1,9 +1,3 @@
-## Sumary
-- [About](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#about) 
-  - [Overview](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#overview)
-  - [Description](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#description)
-- [Requirements](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#requirements)
-
 ## About
 ### Overview 
 This project aims to participate in the selection process of the company Dafiti
