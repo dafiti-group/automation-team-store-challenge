@@ -1,1 +1,0 @@
-gunicorn --chdir store/ 'app:create_app()'

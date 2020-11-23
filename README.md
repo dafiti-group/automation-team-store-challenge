@@ -1,69 +1,45 @@
-# Automation Team - Programming Challenge
+## Sumary
+- [About](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#about) 
+  - [Overview](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#overview)
+  - [Description](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#description)
+- [Requirements](https://github.com/MartinsBruno/automation-team-store-challenge/blob/main/README.md#requirements)
+
+## About
+### Overview 
+This project aims to participate in the selection process of the company Dafiti
+
+### Description
+The design goal is to have a backend with tools to help deliver an API and a frontend that consumes this API.
+
+## Requirements
+- Python 3.8.x installed.
+- Pip3 20.x installed.
 
 ---
 
-## Instructions
-
-- Fork this repository into your github account. All the work must be done on your forked repository.
-
-- Create a branch from `master` (e.g. `develop`) and do all of your magic on this created branch ;)
-
-- Code (and document) up
-
-- When finished, create a Pull Request from the created branch to master.
-
-- Send an email to us with the Pull Request link (from your forked repository). That way we can request access to review it and provide you feedback.
-
----
-
-## The Challenge
-
-- As a business requirement, choose a fashion-related resource. E.g. shoes, pants, shirts, etc...
-
-- Create a RESTful JSON API to expose CRUD (Create/Retrieve/Update/Delete) operations on this resource.
-
-- Create an endpoint to populate data into the model/table using a CSV file. One of the fields of the model/table must have its' value calculated based on 1 or more of the other ones.
-
-- Create a frontend that has a list of all resources. It must consume the backend API endpoint that lists the resources.
-
-- Provide a way for us to run your application locally with all of its' requirements (python and infrastructure-wide)
-
----
-
-## What will be taken into account
-
-- Your understanding of the requirements
-
-- Your development workflow
-
-- How you architecture the solution using python
-
-- Data sanitization and validation
-
-- API documentation
-
-- Project documentation: the fashion-related resource you chose, how you structured the project and instructions to run your solution locally on a Ubuntu 18.04+ machine (backend and frontend). Feel free to add any other relevant information.
-
-- Automated tests
-
-- Code consistency (through automated formatters, linters, etc...)
-
----
-
-## **You will stand out from the crowd if**:
-
-- You handle the documentation with love and care (attention to details is a HUGE seller here)
-
-- The frontend consumes ALL the backend API endpoints of the resource, and even more if it provides ways to search for contents.
-
-- You use Docker - so we can run your application locally.
-
-- If you deploy the application somewhere remotely where we can interact with it (although we will still try to run it locally ;).
-
----
-
-## Frameworks, databases and other tooling
-
-On our team we architecture applications with microservices in mind. All new applications (and nowadays the majority of them) are developed on python 3.8+, django or flask, postgres as the database, redis as cache and celery/rabbitmq when we need to deal with processing/flows too long to finish on a request-response cycle. We package our applications as docker images and deploy with kubernetes using helm charts. But feel free to use frameworks, databases and tooling your are the most familiar with.
-
-
+## Installation
+- Clone this repository:
+```bash
+$ git clone https://github.com/dafiti-group/automation-team-store-challenge
+```
+- Use the main directory:
+```bash
+$ cd automation-team-store-challenge/
+```
+- Install all requirements to this project
+```bash
+$ pip install -r requirements.txt
+```
+- Export the flask variable to use the main app.py file of the project
+```bash
+$ export FLASK_APP=store/app.py
+```
+- Create the database using a command created internally in flask
+```bash
+$ flask create-database
+```
+- Run the application! (Specify the door if necessary. The default will be :5000)
+```bash
+$ flask run --port 8000
+```
+- Access the application in localhost:()
