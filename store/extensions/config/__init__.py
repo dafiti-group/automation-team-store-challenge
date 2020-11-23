@@ -3,4 +3,4 @@ def init_app(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///store.db'
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     if app.config["DEBUG"] == True:
-        pass
+        app.config["FULL_URL"] = "localhost:5000"

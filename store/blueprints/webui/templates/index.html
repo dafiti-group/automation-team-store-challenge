@@ -1,0 +1,93 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="d-flex flex-row justify-content-around">
+    <div class="p-2">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Here you can see all of your data</p> 
+            <footer class="blockquote-footer">You can also delete or edit any of them</footer>
+        </blockquote>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if json %}
+                {%for element in json%}
+                <tr>
+                    <th scope="row">{{element.id}}</th>
+                    <td>{{element.name}}</td>
+                    <td><center>{{element.price}}</center></td>
+                    <td>{{element.description}}</td>
+                    <td><center><a href="/update/{{element.id}}">📝</a></center></td>
+                    <td><center><a href="/delete/{{element.id}}">🗑</a></center></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="6"><center>No data to display</center></td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr>
+
+<div class="d-flex flex-row d-flex justify-content-around">
+    <div class="p-2">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Register a new shoe manualy</p> 
+            <p class="mb-0"></p>Using the fields: <cite title="Source Title">Name, price and Description</cite>
+            <footer class="blockquote-footer">All fields are required. Repeated names will be recused</footer>
+        </blockquote>
+        <form method="POST" name="manualy-form" action="/insert">
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" id="formName" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="price" class="form-control" id="formPrice" placeholder="Price" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="description" class="form-control" id="formDescription" placeholder="Description" required>
+            </div>
+            <button type="submit" class="btn btn-outline-success btn-sm btn-block">Submit</button>
+            <button type="reset" class="btn btn-outline-dark btn-sm btn-block">Clear</button>
+        </form>
+    </div>
+
+    <div class="p-2">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Or the mass insertion</p> 
+            <footer class="blockquote-footer">Can be performed using an CSV file</footer>
+        </blockquote>
+        <form method="POST" action="/insertmany" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile04" name="file">
+                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="submit">Submit CSV</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Tips</p> 
+            <footer class="blockquote-footer">Separate the elements by line</footer>
+            <footer class="blockquote-footer">Each information by comma</footer>
+            <footer class="blockquote-footer">Using the order: Name, Price, Description (And with this data in the first line)</footer>
+        </blockquote>
+    </div>
+</div>
+
+{% endblock %}
