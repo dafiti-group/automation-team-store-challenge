@@ -1,9 +1,7 @@
-dynaconf
 requests
-gunicorn
+pandas
 flask
 flask_sqlalchemy
-flask-migrate
 marshmallow-sqlalchemy
 flask-marshmallow
 pytest
