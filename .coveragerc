@@ -1,0 +1,11 @@
+[run]
+omit =
+    */venv/*
+    */tests/*
+    */handle_logs*
+
+[html]
+directory = coverage_html_report
+
+[xml]
+output = coverage-reports/coverage.xml
