@@ -1,0 +1,7 @@
+pylint==2.4.4
+pycodestyle==2.5.0
+pytest-django==4.1.0
+pytest-cov==2.8.1
+tox==3.14.2
+ipdb==0.13.4
+pylint-django==2.3.0
