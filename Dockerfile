@@ -4,7 +4,7 @@ ARG WORKERS=4
 ARG THREADS=4
 
 COPY requirements.txt requirements-dev.txt /opt/
-COPY wait_for_db_and_start_server.py manage.py /opt/
+COPY wait_db_to_start_server.py manage.py /opt/
 COPY src /opt/src
 COPY clothing_manager /opt/clothing_manager
 

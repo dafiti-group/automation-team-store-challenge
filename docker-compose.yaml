@@ -15,7 +15,7 @@ services:
       - '3306:3306'
   app:
     build: .
-    command: python ./wait_for_db_and_start_server.py
+    command: python ./wait_db_to_start_server.py
     ports:
       - "8000:8000"
     depends_on:

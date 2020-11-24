@@ -28,3 +28,6 @@ ENV/
 
 #logs
 *.log
+
+#db
+db/*
