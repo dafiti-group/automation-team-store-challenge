@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=clothing_manager
+      - MYSQL_HOST=localhost
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - '3306:3306'
+  app:
+    build: .
+    command: python ./wait_for_db_and_start_server.py
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db
