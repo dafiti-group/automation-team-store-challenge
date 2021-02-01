@@ -28,7 +28,7 @@ def read_csvfile(request):
     # setup a stream which is when we loop through each line we are able to handle a data in a stream
     io_string = io.StringIO(data_set)
     next(io_string)
-    for column in csv.reader(io_string, delimiter=';', quotechar="|"):
+    for column in csv.reader(io_string, delimiter=',', quotechar="|"):
         _, created = Shoe.objects.update_or_create(
             id=column[0],
             name=column[1],
