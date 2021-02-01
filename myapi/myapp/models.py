@@ -9,7 +9,7 @@ import uuid
 class Color(models.Model):
 
     """Model representing the color of shoes"""
-    name = models.Charfield(max_length=30, help_text='Enter a color (e.g. blue)')
+    name = models.CharField(max_length=30, help_text='Enter a color (e.g. blue)')
 
     def __str__(self):
         """String for representing the Model object"""
@@ -19,7 +19,7 @@ class Color(models.Model):
 class Type(models.Model):
 
     """Model representing the type of shoes, feminine/masculine"""
-    name = models.Charfield(max_length=10, help_text='Feminine or masculine shoes')
+    name = models.CharField(max_length=10, help_text='Feminine or masculine shoes')
 
     def __str__(self):
         """String for representing the Model object"""
@@ -29,7 +29,7 @@ class Type(models.Model):
 class Style(models.Model):
 
     """Model representing the style of shoes"""
-    name = models.Charfield(max_length=50, help_text='Enter the style of shoes (e.g. sandals)')
+    name = models.CharField(max_length=50, help_text='Enter the style of shoes (e.g. sandals)')
 
     def __str__(self):
         """String for representing the Model object"""
@@ -39,8 +39,8 @@ class Style(models.Model):
 class Brand(models.Model):
 
     """Model representing the brand of shoes"""
-    name = models.Charfield(max_length=100, help_text='Enter the brand of shoes')
-    country = models.Charfield(max_length=100)
+    name = models.CharField(max_length=100, help_text='Enter the brand of shoes')
+    country = models.CharField(max_length=100)
 
     def __str__(self):
         """String for representing the Model object"""
@@ -49,8 +49,8 @@ class Brand(models.Model):
 class Shoe(models.Model):
 
     """Model representing the pair of shoes (not the product itself)"""
-    name = models.Charfield(max_length=100)
-    price = models.DecimalField(decimal_places=2)
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=8,decimal_places=2)
     size = models.IntegerField()
     color = models.ManyToManyField('Color', help_text='Select a color for these shoes')
     type = models.ForeignKey('Type', on_delete=models.SET_NULL, null=True)
@@ -79,7 +79,7 @@ class ShoeInstance(models.Model):
         ('n', 'Not available'),
     )
 
-    status = models.Charfield(
+    status = models.CharField(
         max_length=1,
         choices=PURCHASE_STATUS,
         blank=True,
