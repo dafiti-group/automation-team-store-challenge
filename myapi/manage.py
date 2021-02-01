@@ -7,6 +7,7 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myapi.settings')
+    #my_csv_list = MyCsvModel.import_data(data = open("myapp\src\data.csv"))
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

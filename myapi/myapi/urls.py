@@ -31,11 +31,11 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('myapp/', include('myapp.urls')),
+    path('core/', include('core.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='myapp/', permanent=True)),
+    path('', RedirectView.as_view(url='core/', permanent=True)),
 ]
