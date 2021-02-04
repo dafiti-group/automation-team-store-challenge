@@ -16,7 +16,20 @@ class Shoe(models.Model):
     color = models.CharField(max_length=50)
     brand = models.CharField(max_length=100)
     post_date = models.DateField()
-    status = models.CharField(max_length=1)
+
+    PURCHASE_STATUS = (
+        ('s', 'In Stock'),
+        ('n', 'Non Available'),
+        ('a', 'Available'),
+    )
+
+    status = models.CharField(
+        max_length=1,
+        choices=PURCHASE_STATUS,
+        blank=True,
+        default='a',
+        help_text='Shoe availability',
+    )
 
     class Meta:
             # Ordering by the lastest products posted
