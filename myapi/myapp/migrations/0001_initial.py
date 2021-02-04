@@ -35,8 +35,8 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=8)),
                 ('size', models.IntegerField()),
-                ('brand', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='core.brand')),
-                ('color', models.ManyToManyField(help_text='Select a color for these shoes', to='core.Color')),
+                ('brand', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='myapp.brand')),
+                ('color', models.ManyToManyField(help_text='Select a color for these shoes', to='myapp.Color')),
             ],
         ),
         migrations.CreateModel(
@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
                 ('id', models.UUIDField(default=uuid.uuid4, help_text='Unique ID for this particular pair of shoes', primary_key=True, serialize=False)),
                 ('post_date', models.DateField(blank=True, null=True)),
                 ('status', models.CharField(blank=True, choices=[('a', 'Available'), ('s', 'In stock'), ('n', 'Not available')], default='a', help_text='Shoes availability', max_length=1)),
-                ('shoe', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='core.shoe')),
+                ('shoe', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='myapp.shoe')),
             ],
             options={
                 'ordering': ['-post_date'],
@@ -68,11 +68,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='shoe',
             name='style',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='core.style'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='myapp.style'),
         ),
         migrations.AddField(
             model_name='shoe',
             name='type',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='core.type'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='myapp.type'),
         ),
     ]
