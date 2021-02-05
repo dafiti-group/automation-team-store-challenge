@@ -10,6 +10,16 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', {})
 
+def feminine_shoes(request):
+
+    # Render the HTML template feminine_shoes.html with the data in the context variable
+    return render(request, 'feminine_shoes.html', {})
+
+def masculine_shoes(request):
+
+    # Render the HTML template feminine_shoes.html with the data in the context variable
+    return render(request, 'masculine_shoes.html', {})
+
 # one parameter named request
 def read_csvfile(request):
 
