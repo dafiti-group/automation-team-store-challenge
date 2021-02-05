@@ -2,6 +2,7 @@ import csv, io
 from django.shortcuts import render
 from django.contrib import messages
 from .models import Shoe
+from django.views import generic
 import pandas as pd
 
 def index(request):
