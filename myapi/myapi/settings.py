@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'rest_framework'
+    'rest_framework',
+    'import_export',
+    'csvimport.app.CSVImportConf',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# django-import-export
+IMPORT_EXPORT_USE_TRANSACTIONS = True

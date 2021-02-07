@@ -1,15 +1,32 @@
 import csv, io
 from django.shortcuts import render
 from django.contrib import messages
-from .models import Shoe
 from django.views import generic
 import pandas as pd
+from tablib import Dataset
+from django.shortcuts import get_object_or_404
+
 
 def index(request):
-    """View function for home page of site."""
+
+    return render(request, 'index.html', {})
+    """View function for home page of site.
+
+    model = Shoe
+
+    if request.method == 'POST':
+        person_resource = PersonResource()
+        dataset = Dataset()
+        new_persons = request.FILES['myfile']
+
+        imported_data = dataset.load(new_persons.read())
+        result = person_resource.import_data(dataset, dry_run=True)  # Test the data import
+
+        if not result.has_errors():
+            person_resource.import_data(dataset, dry_run=False)  # Actually import now
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html', {})
+
 
 def feminine_shoes(request):
 
@@ -20,6 +37,15 @@ def masculine_shoes(request):
 
     # Render the HTML template feminine_shoes.html with the data in the context variable
     return render(request, 'masculine_shoes.html', {})
+
+class ShoeListView(generic.ListView):
+    model = Shoe
+
+def feminine_shoe_detail_view(request, primary_key):
+
+    shoe = get_object_or_404(Shoe, pk=primary_key)
+
+    return render(request, '')
 
 # one parameter named request
 def read_csvfile(request):
@@ -84,3 +110,5 @@ def read_csvfile(request):
         )
     context = {}
     return render(request, template, context)
+
+"""

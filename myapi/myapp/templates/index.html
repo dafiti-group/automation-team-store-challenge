@@ -81,6 +81,12 @@
         <p>
           <a href="feminine_shoes" class="btn btn-secondary my-2">Feminino</a>
           <a href="masculine_shoes" class="btn btn-secondary my-2">Masculino</a>
+          <br>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="myfile">
+            <button type="submit">Upload</button>
+          </form>
         </p>
       </div>
     </div>
