@@ -128,5 +128,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# django-import-export
-IMPORT_EXPORT_USE_TRANSACTIONS = True
+# adding media to the model
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

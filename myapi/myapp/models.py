@@ -32,6 +32,8 @@ class Shoe(models.Model):
         help_text='Shoe availability',
     )
 
+    image = models.ImageField(default='src/img/default.png')
+
     class Meta:
             # Ordering by the lastest products posted
         ordering = ['-post_date']

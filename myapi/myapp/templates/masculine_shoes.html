@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
   <head>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -92,7 +92,7 @@
         {% for shoe in shoes %}
           <div class="col">
             <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"><img src="{{ shoe.image.url }}" width="100%" height="200"></svg>
               <div class="card-body">
                 <p class="card-text"><span>{{ shoe.name }}</span></p>
                 <div class="d-flex justify-content-between align-items-center">
