@@ -72,49 +72,14 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Dafiti Group - Calçados</h1>
-        <p class="lead text-muted">
-          O maior grupo de e-commerces de moda e lifestyle da América Latina. A Dafiti, criada em 2011, foi o primeiro e-commerce de moda a vender calçados 100% online no Brasil.
-        </p>
-        <br>
-        <h3 class="fw-light">Confira já!</h2>
-        <p>
-          <a href="feminine_shoes" class="btn btn-secondary my-2">Feminino</a>
-          <a href="masculine_shoes" class="btn btn-secondary my-2">Masculino</a>
-        </p>
+        {% block content %}
+        <li>
+          <a>{{ shoe.name }}</a>
+        </li>
+        {% endblock %}
       </div>
     </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      {% block content %}
-      <div class="row row-cols-lg-4">
-
-      {% for shoe in shoes %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"><img src="{{ shoe.image.url }}" width="100%" height="200"></svg>
-            <div class="card-body">
-              <p class="card-text"><span>{{ shoe.name }}</span></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button href="{% url 'shoes_detail' shoes.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">R$ <span>{{ shoe.price }}</span></small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      {% endfor %}
-      {% endblock %}
-
-      </div>
-    </div>
-  </div>
 
 </main>
 
