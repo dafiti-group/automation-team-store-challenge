@@ -74,19 +74,13 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Dafiti Group - Calçados</h1>
         <p class="lead text-muted">
-          <q>O Dafiti Group é o maior grupo de e-commerces de moda e lifestyle da América Latina. A Dafiti, criada em 2011, foi o primeiro e-commerce de moda a vender calçados 100% online no Brasil.</q>
-          (Fonte: <a href="https://pt.wikipedia.org/wiki/Dafiti" target="_blank"><font color=black>Wikipédia</a>)
+          O maior grupo de e-commerces de moda e lifestyle da América Latina. A Dafiti, criada em 2011, foi o primeiro e-commerce de moda a vender calçados 100% online no Brasil.
         </p>
+        <br>
         <h3 class="fw-light">Confira já!</h2>
         <p>
           <a href="feminine_shoes" class="btn btn-secondary my-2">Feminino</a>
           <a href="masculine_shoes" class="btn btn-secondary my-2">Masculino</a>
-          <br>
-          <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="file" name="myfile">
-            <button type="submit">Upload</button>
-          </form>
         </p>
       </div>
     </div>
@@ -94,6 +88,22 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
+
+    {% block content %}
+      <h1>Shoes List</h1>
+      {% if my_shoes_list %}
+      <ul>
+        {% for shoe in my_shoes_list %}
+          <li>
+            <a>{{ shoe.name }}</a> ({{shoe.price}})
+          </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>There are no shoes available.</p>
+      {% endif %}
+  {% endblock %}
+
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CsvimportData
+from .models import Shoes
 
 # Register your models here.
-admin.site.register(CsvimportData)
+admin.site.register(Shoes)

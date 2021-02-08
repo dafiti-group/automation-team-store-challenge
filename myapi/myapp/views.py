@@ -5,11 +5,21 @@ from django.views import generic
 import pandas as pd
 from tablib import Dataset
 from django.shortcuts import get_object_or_404
-
+from .models import Shoes
 
 def index(request):
 
+    model = Shoes
+
+    context_object_name = 'my_shoes_list'
+
     return render(request, 'index.html', {})
+
+
+class ShoesListView(generic.ListView):
+
+
+
     """View function for home page of site.
 
     model = Shoe
@@ -27,7 +37,7 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
 
-
+"""
 def feminine_shoes(request):
 
     # Render the HTML template feminine_shoes.html with the data in the context variable
@@ -37,6 +47,8 @@ def masculine_shoes(request):
 
     # Render the HTML template feminine_shoes.html with the data in the context variable
     return render(request, 'masculine_shoes.html', {})
+
+"""
 
 class ShoeListView(generic.ListView):
     model = Shoe
