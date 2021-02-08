@@ -5,7 +5,7 @@ No column names for 10 columns
 """
 from django.db import models
 
-class Shoes(models.Model):
+class Shoe(models.Model):
 
     """Model representing the pair of shoes"""
 

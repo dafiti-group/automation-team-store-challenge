@@ -5,20 +5,13 @@ from django.views import generic
 import pandas as pd
 from tablib import Dataset
 from django.shortcuts import get_object_or_404
-from .models import Shoes
+from .models import Shoe
 
 def index(request):
 
-    model = Shoes
+    shoes = Shoe.objects.all()
 
-    context_object_name = 'my_shoes_list'
-
-    return render(request, 'index.html', {})
-
-
-class ShoesListView(generic.ListView):
-
-
+    return render(request, 'index.html', {'shoes': shoes})
 
     """View function for home page of site.
 
@@ -40,13 +33,17 @@ class ShoesListView(generic.ListView):
 """
 def feminine_shoes(request):
 
+    shoes = Shoe.objects.filter(type__icontains='Feminino')
+
     # Render the HTML template feminine_shoes.html with the data in the context variable
-    return render(request, 'feminine_shoes.html', {})
+    return render(request, 'feminine_shoes.html', {'shoes': shoes})
 
 def masculine_shoes(request):
 
+    shoes = Shoe.objects.filter(type__icontains='Masculino')
+
     # Render the HTML template feminine_shoes.html with the data in the context variable
-    return render(request, 'masculine_shoes.html', {})
+    return render(request, 'masculine_shoes.html', {'shoes': shoes})
 
 """
 
