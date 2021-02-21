@@ -20,6 +20,7 @@ numpy==1.20.0
 odfpy==1.4.1
 openpyxl==3.0.6
 pandas==1.2.1
+Pillow==8.1.0
 psycopg2 @ file:///C:/ci/psycopg2_1608147654043/work
 python-dateutil==2.8.1
 python-dotenv==0.15.0
