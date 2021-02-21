@@ -32,8 +32,8 @@ In order to provide a clear path of what were made I have created this folder to
   The API was made with very basic complexity considering the final goal of load into the front end.</br>
   We will have only the `GET` option for this API in order to provide all data from our database. 
 
-- [ ] **Django Front End** <p>
-  In progress.
+- [X] **Django Front End** <p>
+  I created a responsive layout that loads all API data and parse into a loop filling the product template and It's respective CSS. 
 
 
 
