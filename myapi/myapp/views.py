@@ -27,7 +27,6 @@ def masculine_shoes(request):
     # Render the HTML template feminine_shoes.html with the data in the context variable
     return render(request, 'masculine_shoes.html', {'shoes': shoes})
 
-
-def shoes_detail(request, id):
-    shoes = get_object_or_404(Shoe, pk=id)
-    return render(request, 'shoe_detail.html', {'shoes': shoes})
+def shoes_detail(request, primary_key):
+    shoes = get_object_or_404(Shoe, pk=primary_key)
+    return render(request, 'shoes_detail.html', {'shoes': shoes})

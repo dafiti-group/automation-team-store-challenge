@@ -57,7 +57,7 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+      <a href="{% url 'myapp:index' %}" class="navbar-brand d-flex align-items-center">
         <img src="https://global-fashion-group.com/wp-content/uploads/2019/01/dafiti-group-logo-white-minusgroup-centred@2x-copy.png" width="85" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,12 +95,12 @@
               <svg class="bd-placeholder-img card-img-top" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"><img src="{{ shoe.image.url }}" width="100%" height="200"></svg>
               <div class="card-body">
                 <p class="card-text"><span>{{ shoe.name }}</span></p>
+                <small class="text-muted">R$ <span>{{ shoe.price }}</span></small>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </div>
-                  <small class="text-muted">R$ <span>{{ shoe.price }}</span></small>
                 </div>
               </div>
             </div>
