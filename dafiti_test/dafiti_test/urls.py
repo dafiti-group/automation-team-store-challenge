@@ -6,5 +6,5 @@ from api.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', product_list.as_view()),
-    path('', mainPage),
+    path('',search, name='search'),
 ]

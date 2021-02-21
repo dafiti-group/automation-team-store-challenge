@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block products %}
+<div class='container'>
+    {% for i in queryset %}
+      {% if i == "Não encontramos o item pesquisado" %}
+        <div class="error">
+            <h3>{{i}}</h3>
+            <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/157/196/bcf.gif'>
+          </div>     
+      {% else %}  
+        <div class='product'>
+            <img src='{{i.img_src}}'>
+            <div class='label'>
+              <span class='title'>{{i.title}}<span><br>
+              <span class='price'>R$ {{i.price}}</span>
+            </div>
+          </div>
+      {% endif %}
+    {% endfor %}
+</div>
+{% endblock products %}

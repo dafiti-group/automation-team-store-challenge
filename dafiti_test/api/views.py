@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.views.generic import TemplateView
 from .models import Product
 from .serializers import ProductSerializer
 import requests, json
@@ -24,5 +23,15 @@ class product_list(APIView):
 
 def mainPage(request):
     valores = requests.get('http://localhost:8000/api').json()
-    data = {}
     return render(request,'products.html',{'data':valores})
+
+def search(request):
+    prod_list = Product.objects.all()
+    qs = request.GET.get('q')
+
+    if qs != '' and qs is not None:
+        prod_list = prod_list.filter(title__icontains=qs)
+        if len(prod_list) == 0:
+            prod_list = {'Não encontramos o item pesquisado'}
+
+    return render(request,'search.html',{'queryset' : prod_list})
