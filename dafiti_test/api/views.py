@@ -29,7 +29,6 @@ def mainPage(request):
 def search(request):
     prod_list = Product.objects.all()
     qs = request.GET.get('q')
-    qs = str(qs).split(' ')
     
     if qs != '' and qs is not None:
         prod_list = prod_list.filter(title__icontains=qs)
