@@ -1,14 +1,18 @@
-html{
-    background-color: #cecece;
+body, html{
+    background-color: #fefefefe;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 header{
-    border: 1px solid black;
     width: 100%;
-    height: 70px;
+    height: 80px;
     display: grid;
     grid-template-columns: 50% 50%;
-    background-color: rgb(245, 243, 240);
+    background-color: #fefefefe;
+    border-bottom: 1px solid gray;
 }
 header h1{
     font-size: medium;
@@ -66,9 +70,10 @@ header img{
     object-position: 50% -50px;
     transition: all 0.3s;
     border-radius: 20px;
+    filter: brightness(1.1);
 }
 .product img:hover{
-    filter: brightness(1.2);
+    filter: grayscale(20%);
 }
 .label {
     background-color: rgba(201, 201, 201, 0.363);
