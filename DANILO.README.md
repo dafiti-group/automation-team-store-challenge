@@ -30,10 +30,18 @@ In order to provide a clear path of what were made I have created this folder to
 
 - [X] **Django API** <p>
   The API was made with very basic complexity considering the final goal of load into the front end.</br>
-  We will have only the `GET` option for this API in order to provide all data from our database. 
+  We will have only the `GET` option for this API in order to provide all data from our database. <p>
+  The API can be reached throught the `/api` directory.
 
 - [X] **Django Front End** <p>
-  I created a responsive layout that loads all API data and parse into a loop filling the product template and It's respective CSS. 
+  I created a responsive layout that loads all API data and parse into a loop filling the product template and It's respective CSS, nothing too fancy but quite functional.
+
+
+**Greetings** <p>
+I would like to thank all Dafiti's team for the oportunity of show a little bit of my knowledge and independently of the results was a very awesome experience. For those who loves technology this kind of tests are very interesting to do and see the results at end.<p>
+Thanks again and look forward to hear you soon! <p>
+Regards,<p>
+Danilo P.
 
 
 
