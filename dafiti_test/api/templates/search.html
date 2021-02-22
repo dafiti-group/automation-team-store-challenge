@@ -1,22 +1,56 @@
 {% extends "base.html" %}
 
 {% block products %}
-<div class='container'>
-    {% for i in queryset %}
-      {% if i == "Não encontramos o item pesquisado" %}
-        <div class="error">
-            <h3>{{i}}</h3>
-            <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/157/196/bcf.gif'>
-          </div>     
-      {% else %}  
-        <div class='product'>
-            <img src='{{i.img_src}}'>
-            <div class='label'>
-              <span class='title'>{{i.title}}<span><br>
-              <span class='price'>R$ {{i.price}}</span>
+  <div class='container'>
+      {% for i in page_obj %}
+        {% if i == "Não encontramos o item pesquisado" %}
+          <div class="error">
+              <h3>{{i}}</h3>
+              <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/157/196/bcf.gif'>
+            </div>     
+        {% else %}  
+          <div class='product'>
+              <img src='{{i.img_src}}'>
+              <div class='label'>
+                <span class='title'>{{i.title}}<span><br>
+                <span class='price'>R$ {{i.price}}</span>
+              </div>
             </div>
-          </div>
-      {% endif %}
-    {% endfor %}
-</div>
+        {% endif %}
+      {% endfor %}
+  </div>
+
+  {% if paginator.num_pages > 1 %}
+    <nav class='main-pages'>
+      <ul class="pagination">
+          {% if paginator.num_pages != 1 %}
+              <li ><a  href="?page=1">First</a></li>
+          {% else %}
+              <li><a  href="#">Primeira Página</a></li>
+          {% endif %}
+          {% if page_obj.has_previous %}
+              <li ><a  href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+              <li><a  href="#">&laquo;</a></li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+                  <li><a class="active" href="#">{{ i }}</a></li>
+              {% elif page_obj.number > i|add:"-5" and page_obj.number < i|add:"+5"%}
+                  <li ><a  href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+              <li></li><a  href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+          {% else %}
+              <li><a  href="#">&raquo;</a></li>
+          {% endif %}
+          {% if paginator.num_pages != page_obj.number %}
+              <li ><a href="?page={{ paginator.num_pages }}">Last</a></li>
+          {% else %}
+              <li><a  href="#">Última Página</a></li>
+          {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
 {% endblock products %}

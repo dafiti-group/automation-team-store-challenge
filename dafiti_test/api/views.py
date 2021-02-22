@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Product
@@ -28,10 +29,16 @@ def mainPage(request):
 def search(request):
     prod_list = Product.objects.all()
     qs = request.GET.get('q')
-
+    qs = str(qs).split(' ')
+    
     if qs != '' and qs is not None:
         prod_list = prod_list.filter(title__icontains=qs)
         if len(prod_list) == 0:
             prod_list = {'Não encontramos o item pesquisado'}
+    
+    paginator = Paginator(prod_list, 15)
 
-    return render(request,'search.html',{'queryset' : prod_list})
+    page_number = request.GET.get('page')   
+    page_obj = paginator.get_page(page_number)
+
+    return render(request,'search.html',{'page_obj' : page_obj,'paginator': paginator})
