@@ -101,7 +101,7 @@
               <small class="text-muted">R$ <span>{{ shoe.price }}</span></small>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button href="{% url 'myapp:shoes_detail' shoe.pk %}" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button href="{% url 'myapp:shoes_detail' shoe.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
               </div>

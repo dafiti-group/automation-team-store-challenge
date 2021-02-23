@@ -1,8 +1,3 @@
-"""
-No column names for 10 columns
- A django model generated with django-csvimport csvinspect
-    which used OKN messytables to guess data types - may need some manual tweaks!
-"""
 from django.db import models
 
 
