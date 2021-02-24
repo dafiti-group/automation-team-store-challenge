@@ -54,20 +54,21 @@ class ShoeFormView(FormView):
 class ShoeUpdateView(UpdateView):
 
     model = Shoe
-
-    fields = [
-        "name",
-        "price",
-        "size",
-        "style",
-        "type",
-        "color",
-        "brand",
-        "post_date",
-        "status"
-    ]
+    form_class = ShoeForm
 
     template_name = 'shoes_update.html'
+
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('myapp:index')
+
+
+class ShoeDeleteView(DeleteView):
+
+    model = Shoe
+
+    template_name = 'shoes_delete.html'
 
     pk_url_kwarg = 'id'
 
