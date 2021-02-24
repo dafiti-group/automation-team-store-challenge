@@ -2,6 +2,60 @@
 
 ---
 
+## Quickstart
+
+1. Clone the Project
+2. Enter the main folder
+  ```
+  cd myapi
+  ```
+
+### Running with Docker
+1. Open your SO terminal
+2. Build Docker Images and Containers
+  ```
+  docker-compose up -d
+  ```
+
+3. Build and run the application
+  ```
+  docker-compose up --build
+  ```
+
+4. Go to 127.0.0.1:8080 on your browser
+
+
+### Running with Anaconda Navigator
+
+If you DON'T have Anaconda Navigator installed in your computer, go to step 2:
+
+1. Creating a virtual environment and activating it:
+  - Open Anaconda Prompt and create the virtual environment to manage versions:
+    ```
+    conda create --name venv
+    ```
+    ```
+    conda activate venv
+    ```
+
+2. Setting up the application:
+  - Installing necessary setup
+    ```
+    pip install -r requirements.txt
+    ```
+  - Migrating the database
+    ```
+    python manage.py makemigrations
+    ```
+    ```
+    python manage.py migrate
+    ```
+
+3. Running the application:
+    ```
+    python manage.py runserver
+    ```
+
 ## Instructions
 
 - Fork this repository into your personal github account. All the work must be done on your personal forked repository. We will trust you to our hearts not to take "inspiration" from other available forks. ;)
@@ -65,5 +119,3 @@
 ## Frameworks, databases and other tooling
 
 In our team we architecture applications with microservices in mind. All new applications (and nowadays the majority of them) are developed on python 3.8+, django or flask, postgres as the database, redis as cache and celery/rabbitmq when we need to deal with processing/flows too long to finish on a request-response cycle. We package our applications as docker images and deploy with kubernetes using helm charts. But feel free to use frameworks, databases and tooling your are the most familiar with.
-
-

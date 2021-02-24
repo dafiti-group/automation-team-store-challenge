@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    environment:
+      MYENV: venv
+    volumes:
+      - .:/code
+  web_migrate:
+    extends:
+      service: web
+    command: python manage.py migrate
+  web_run:
+    extends:
+      service: web
+    command: python manage.py runserver 0.0.0.0:8080
+    ports:
+      - "8080:8080"
