@@ -74,7 +74,7 @@
         {% block content %}
         <h2 class="fw-light">Adicionar produto</h2>
         <br>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
             {{ form.as_p }}
           <button type="submit" class="btn btn-secondary my-2" method="POST">Adicionar</button>
