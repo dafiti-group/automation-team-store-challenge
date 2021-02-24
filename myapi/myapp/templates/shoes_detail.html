@@ -75,7 +75,9 @@
       .img-wrapper {display:inline-block; height:159px; overflow:hidden; width:153px;}
       .img-wrapper img {height:159px;}
     </style>
+    <br>
         <img class="img-wrapper" src="{{ shoes.image.url }}" width="100%" height="200"></svg>
+        <br><br>
         <p class="card-text"><span>{{ shoes.name }}</span></p>
         <p class="lead text-muted">Tamanho: <span>{{ shoes.size }}
           <br>
@@ -86,7 +88,7 @@
           Status: <span>{{ shoes.status.values }}</p>
         <small class="text-muted">R$ <span>{{ shoes.price }}</span></small>
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            <a href="{% url 'myapp:update_shoes' shoes.id %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
           </div>
         </div>
     {% endblock %}

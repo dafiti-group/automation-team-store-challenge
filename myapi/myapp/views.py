@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import FormView, UpdateView, DeleteView
 from .models import Shoe
 from .forms import ShoeForm
 
@@ -36,24 +36,40 @@ def shoes_detail(request, id):
     return render(request, 'shoes_detail.html', {'shoes': shoes})
 
 
-def add_shoes(request):
+class ShoeFormView(FormView):
 
-    if request.method == "POST":
+    form_class = ShoeForm
 
-        form = ShoeForm(request.POST, request.FILES)
+    template_name = 'shoe_form.html'
 
-        if form.is_valid():
+    def form_valid(self, form):
 
-            form.save()
-            print('sucess')
+        form.save()
+        return HttpResponseRedirect(reverse('myapp:index'))
 
-            return HttpResponseRedirect(reverse('myapp:index'))
+    success_url = "../"
 
-        else:
 
-            print('failure')
-    else:
 
-        form = ShoeForm()
+class ShoeUpdateView(UpdateView):
 
-    return render(request, 'add_shoes.html', {'form': form})
+    model = Shoe
+
+    fields = [
+        "name",
+        "price",
+        "size",
+        "style",
+        "type",
+        "color",
+        "brand",
+        "post_date",
+        "status"
+    ]
+
+    template_name = 'shoes_update.html'
+
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('myapp:index')

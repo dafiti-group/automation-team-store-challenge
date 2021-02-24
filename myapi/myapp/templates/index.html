@@ -102,7 +102,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <a href="{% url 'myapp:shoes_detail' shoe.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
-                    <a type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'myapp:update_shoes' shoe.id %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@
 
       </div>
       <p>
-        <a href="{% url 'myapp:add_shoes' %}" class="btn btn-sm btn-outline-secondary">Adicionar</a>
+        <a href="{% url 'myapp:shoe_form' %}" class="btn btn-sm btn-outline-secondary">Adicionar</a>
       </p>
     </div>
   </div>

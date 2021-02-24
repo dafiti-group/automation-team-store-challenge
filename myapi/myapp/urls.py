@@ -9,5 +9,6 @@ urlpatterns = [
     path('feminine_shoes/', views.feminine_shoes, name='feminine_shoes'),
     path('masculine_shoes/', views.masculine_shoes, name='masculine_shoes'),
     path('<int:id>/', views.shoes_detail, name='shoes_detail'),
-    path('new/', views.add_shoes, name='add_shoes'),
+    path('new/', views.ShoeFormView.as_view(), name='shoe_form'),
+    path('<int:id>/update/', views.ShoeUpdateView.as_view(), name='update_shoes'),
 ]
