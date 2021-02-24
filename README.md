@@ -6,35 +6,37 @@
 
 ### Running with Docker
 
+
 ### Running with Anaconda Navigator
 
-If don't you have Anaconda Navigator installed in you computer, go to step 2:
+If you DON'T have Anaconda Navigator installed in your computer, go to step 2:
 
 1. Creating a virtual environment and activating it:
-- Open Anaconda Prompt and create the virtual environment to manage versions:
-```
-conda create --name venv
-```
-```
-conda activate venv
-```
+  - Open Anaconda Prompt and create the virtual environment to manage versions:
+    ```
+    conda create --name venv
+    ```
+    ```
+    conda activate venv
+    ```
 
 2. Setting up the application:
-- Installing necessary setup
-```
-pip install -r requirements.txt
-```
-- Migratiing the database
-```
-python manage.py makemigrations
-```
-```
-python manage.py migrate
-```
+  - Installing necessary setup
+    ```
+    pip install -r requirements.txt
+    ```
+    - Migrating the database
+    ```
+    python manage.py makemigrations
+    ```
+    ```
+    python manage.py migrate
+    ```
+
 3. Running the application:
-```
-python manage.py runserver
-```
+    ```
+    python manage.py runserver
+    ```
 
 ## Instructions
 

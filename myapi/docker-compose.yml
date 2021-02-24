@@ -4,7 +4,7 @@ services:
   web:
     build: .
     environment:
-      MYENV: EXAMPLE
+      MYENV: venv
     volumes:
       - .:/code
   web_migrate:
