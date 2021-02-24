@@ -44,14 +44,6 @@
           <h4 class="text-white">About</h4>
           <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
         </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -60,7 +52,7 @@
       <a href="{% url 'myapp:index' %}" class="navbar-brand d-flex align-items-center">
         <img src="https://global-fashion-group.com/wp-content/uploads/2019/01/dafiti-group-logo-white-minusgroup-centred@2x-copy.png" width="85" alt="">
       </a>
-      <a href="{% url 'myapp:shoe_form' %}" class="btn btn-sm btn-outline-secondary">Adicionar</a>
+      <a href="{% url 'myapp:shoe_form' %}" class="btn btn-light">Adicionar</a>
     </div>
   </div>
 </header>
@@ -71,8 +63,10 @@
     {% block content %}
     <form method="post">
       {% csrf_token %}
-      <p>Tem certeza de que deseja deletar "{{ shoes.name }}"?</p>
-      <button type="submit" class="btn btn-secondary my-2" method="POST">Adicionar</button>
+      <br><br>
+      <p>Tem certeza de que deseja deletar "{{ shoe.name }}"?</p>
+      <a href="{% url 'myapp:shoes_detail' shoe.id %}" class="btn btn-secondary my-2">Voltar</a>
+      <button type="submit" class="btn btn-danger" method="POST">Deletar</button>
     </form>
         </div>
     {% endblock %}
