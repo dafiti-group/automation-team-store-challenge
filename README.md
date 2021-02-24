@@ -4,7 +4,25 @@
 
 ## Quickstart
 
+1. Clone the Project
+2. Enter the main folder
+  ```
+  cd myapi
+  ```
+
 ### Running with Docker
+1. Open your SO terminal
+2. Build Docker Images and Containers
+  ```
+  docker-compose up -d
+  ```
+
+3. Build and run the application
+  ```
+  docker-compose up --build
+  ```
+
+4. Go to 127.0.0.1:8080 on your browser
 
 
 ### Running with Anaconda Navigator
@@ -25,7 +43,7 @@ If you DON'T have Anaconda Navigator installed in your computer, go to step 2:
     ```
     pip install -r requirements.txt
     ```
-    - Migrating the database
+  - Migrating the database
     ```
     python manage.py makemigrations
     ```
