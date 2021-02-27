@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block products %}
+<div class='container'>
+    {% for i in data %}
+        <div class='product'>
+            <img src='{{i.img_src}}'>
+            <div class='label'>
+              <span class='title'>{{i.title}}<span><br>
+              <span class='price'>R$ {{i.price}}</span>
+            </div>
+          </div>
+    {% endfor %}
+</div>
+{% endblock products %}

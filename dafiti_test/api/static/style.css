@@ -1,0 +1,149 @@
+body, html{
+    background-color: #fefefefe;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+header{
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: #fefefefe;
+    border-bottom: 1px solid gray;
+}
+header h1{
+    font-size: medium;
+    position: absolute;
+    left: 20px;
+}
+header img{
+    position: relative;
+    margin: 20px;
+    margin-left: 40px;
+}
+.search-div{
+    width: 90%;
+    height: 50px;
+    margin: 10px;
+    text-align: right;
+}
+.search-box{
+    width: 60%;
+    height: 25px;
+    margin: 10px;
+    margin-top: 13px;
+    position: relative;
+    border: 1px solid rgb(109, 109, 109);
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-top: -5%;
+}
+.container .error{
+    width: 90%;
+    text-align: center;
+    position: absolute;
+    overflow: hidden;
+}
+.product{
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin-top: 60px;
+    position: relative;
+    text-align: center;
+}
+.product img{
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+    margin-top: 10px;
+    object-fit: cover;
+    object-position: 50% -50px;
+    transition: all 0.3s;
+    border-radius: 20px;
+    filter: brightness(1.1);
+}
+.product img:hover{
+    filter: grayscale(20%);
+}
+.label {
+    background-color: rgba(201, 201, 201, 0.363);
+    position: absolute;
+    width: 97%;
+    height: 62px;
+    bottom: -72px;
+    left: 21px;
+    transition: all 0.3s;
+    padding: 6px;
+    box-sizing: border-box;
+}
+.title{
+    font-size: small;
+    font-weight: bold;
+}
+.price{
+    font-size: small;
+    font-weight: lighter;
+
+}
+.main-pages{
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 80px;
+}
+.pagination {
+    display: inline-flex;
+    list-style: none;
+  }
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid;
+    border-color: grey;
+}
+.pagination a.active {
+    background-color: #252424;
+    color: white;
+}
+.pagination a:hover:not(.active) {
+      background-color: #ddd;
+}
+
+@media screen and (max-width: 1140px){
+    .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 940px){
+    .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 700px){
+    .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-left: 15px;
+    }
+}
