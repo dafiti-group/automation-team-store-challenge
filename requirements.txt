@@ -1,0 +1,14 @@
+flask
+flask_restful
+flask_expects_json
+jsonschema
+flask_sqlalchemy
+brutils
+psycopg2
+gunicorn
+flask_caching
+flask_jwt_extended
+passlib
+pytest-flask
+pytest-cov
+redis

@@ -1,0 +1,6 @@
+FROM postgres:12
+LABEL maintainer = "Victor Canto"
+ENV POSTGRES_USER dafiti
+ENV POSTGRES_PASSWORD t3st@d4f1t1
+ENV POSTGRES_DB dafiti
+EXPOSE 5432
