@@ -1,6 +1,6 @@
 # Dafiti
 
-API Rest de Produtos (Marketing)
+API Rest (Marketing) com o objetivo de criar listas com produtos favoritos de acordo com cada cliente.
 
 ### Arquitetura da Aplicação
 
