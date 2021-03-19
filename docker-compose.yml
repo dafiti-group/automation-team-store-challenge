@@ -1,0 +1,71 @@
+version: '3.6'
+services:
+  nginx:
+    build: 
+      dockerfile: ./docker/nginx.dockerfile
+      context: .
+    image: vhbc/nginx
+    container_name: nginx-loadbalancer
+    ports:
+        - "5000:5000"
+    networks: 
+        - api-network
+    depends_on:
+        - "api-1"
+        - "api-2"
+  
+  postgres-server:
+    build: 
+      dockerfile: ./docker/postgres.dockerfile
+      context: .
+    image: vhbc/postgres
+    container_name: postgres-server
+    ports:
+      - "5432:5432"
+    networks: 
+      - api-network
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  
+  api-1:
+    build: 
+      dockerfile: ./docker/python.dockerfile
+      context: .
+    image: vhbc/api
+    container_name: api-1
+    ports:
+      - "5000"
+    networks: 
+      - api-network
+    depends_on:
+        - "postgres-server"
+        - "redis-server"
+  
+  api-2:
+    build: 
+      dockerfile: ./docker/python.dockerfile
+      context: .
+    image: vhbc/api
+    container_name: api-2
+    ports:
+      - "5000"
+    networks: 
+      - api-network
+
+  redis-server:
+    build: 
+      dockerfile: ./docker/redis.dockerfile
+      context: .
+    image: vhbc/redis
+    container_name: redis-server
+    ports:
+      - "6379:6379"
+    networks: 
+      - api-network
+
+volumes:
+  db_data:
+
+networks:
+  api-network:
+    driver: bridge

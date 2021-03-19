@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "c68022cf-043d-4e38-9bed-b8630fdef3d4",
+		"name": "API - Dafiti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Inserindo Clientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Victor Hugo Braguim Canto\",\n    \"email\": \"vbraguimcanto@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscando Clientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletando Clientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clients?email=vbraguimcanto124@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vbraguimcanto124@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizando Clientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Victor Hugo Braguim Canto III\",\n    \"email\": \"vbraguimcanto124@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Buscar Produtos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/products?page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserindo Produtos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Camiseta Polo Wear\",\n    \"brand\": \"Polo Wear\",\n    \"price\": 39.90,\n    \"image\": \"https://static.dafiti.com.br/p/Polo-Wear-Camiseta-Polo-Wear-Branca-2482-1385875-4-zoom.jpg\",\n    \"reviewScore\": 4.1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletando Produtos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/products?id=12",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lista de Produtos",
+			"item": [
+				{
+					"name": "Inserindo Produtos na Lista",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 2,\n    \"email\": \"vbraguimcanto@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/favorites",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscando Produtos de uma Lista (por e-mail)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/favorites?email=vbraguimcanto@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"favorites"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "vbraguimcanto@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Criação de Usuários da API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"victor\",\n    \"password\": \"12344321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Realiza Login de Usuários na API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"victor\",\n    \"password\": \"12344321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNjAzMDM4NCwianRpIjoiYTI4ODA3NWQtYTk1YS00YmVmLWE1OGEtMDUxZWJiYTg4MTQ5IiwibmJmIjoxNjE2MDMwMzg0LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidmljdG9yIn0.9jMFCNz3p9ipKWms-YOT5RM4S1HV4Svrz_nPqTIr-AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/refresh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
