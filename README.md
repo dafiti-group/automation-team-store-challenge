@@ -138,10 +138,7 @@ git clone https://github.com/romuloflim/automation-team-store-challenge.git
 Utilize o editor de código de sua preferência para abrir a pasta do projeto. Lembrando que trabalharemos com as linguagens Python e JavaScript.
 
 Aproveite também para criar o banco de dados PostgreSQL que será utilizado para guardar os dados da aplicação.
-No editor de código, abra o arquivo `settings.py`, que está dentro do diretório `productmanager`. Procure a variável `DATABASES` e adicione as informações do seu banco, junto à `ENGINE`, com o seguinte valor. Por padrão, as configurações estão definidas da seguinte forma:
-```sh
-'django.db.backends.postgresql'
-```
+No editor de código, abra o arquivo `settings.py`, que está dentro do diretório `productmanager`. Procure a variável `DATABASES` e adicione as informações do seu banco, junto à `ENGINE`. Por padrão, as configurações estão definidas da seguinte forma:
 ```
 DATABASES = {
     'default': {
