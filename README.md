@@ -2,6 +2,7 @@
 
 
 O Dafiti Group abrange um grupo de empresas que aliam moda à inovação, e no momento em que vivemos, não dá para pensar em inovação se não tiver lado a lado com a tecnologia e, mais especificamente, a Tecnologia da Informação e seu papel fundamental nas interações entre pessoas, empresas, produtos e serviços, garantindo cada vez mais agilidade e aproximação entre os extremos. Nesta perspectiva, o grupo conta com um time de profissionais de TI que utilizam as ferramentas mais recentes e produtivas, almejando bons resultados nos bastidores das atividades virtuais desempenhadas pela empresa.
+
 Para integrar mais profissionais ao time, o grupo de automação lançou um problema, que na verdade é um desafio, para ser feita a implementação de um projeto que represente miminamente algumas das regras de negócio dos serviços da Dafiti, que consiste em fazer uma aplicação capaz de criar dados, visualizá-los, alterálos e excluí-los, tarefas conhecidas como CRUD pelos desenvolvedores. Os dados são relacionados aos negócios da empresa: produtos de vestuário, e é preciso que haja uma estrutura que faça a persistência dos dados e os torne acessíveis e manipuláveis por uma interface para o usuário, havendo então uma ponte para comunicação entre as duas partes. E para implementar o projeto, nada mais justo que utilizar as ferramentas que já são usadas pelo time de TI da empresa.
 Sendo assim, para a implementação desse projeto, foram utilizadas as tecnologias que serão discutidas junto à estrutura do projeto logo adiante.
 
@@ -36,6 +37,7 @@ O app products, que é um diretório com os componentes que toda aplicação do 
 
 **Models** _- models.py_
 Classes que extendem o `Model` são representações das tabelas nas formas de objeto. Elas contam com os atributos e suas especificações que definirão as colunas na tabela. O projeto conta com três:
+
 _Product_: é o modelo principal desse projeto. Ele armazena as representações dos produtos, como o nome, tipo de produto, categoria e  tamanho. Abaixo, temos um trecho do objeto junto aos seus atributos, que podem ser conferidos com mais detalhes explorando o arquivo `models.py` no diretório `products`.
 ```
 class Product(models.Model):
@@ -48,6 +50,7 @@ class Product(models.Model):
     ...
 ```
 _ProductCatrgory_: modelo que conta com as diferentes categorias que um produto pode ter. Como não há uma quantidade certa de categorias, elas serão adicionadas de acordo com a necessidade do usuário e fará parte do produto por meio de um relacionamento.
+
 _Brand_: este modelo também se relaciona com o produto e definirá a marca dele. Existe uma infinidade de marcas e também serão adicionadas de acordo com a necessidade do usuário.
 
 **Serializers** _- serializers.py_
@@ -91,8 +94,11 @@ Cria uma nova marca no banco de dados, enviando na requisição os dados da marc
 
 ## Front-end: Interface por meio de páginas web
 A interface do projeto, implementada utilizando o React e estilizada com Bootstrap, foi feita de forma básica e objetiva para atender a API por completo. A estrutura básica e a facilidade de construção de um projeto React é bastante útil. Além dos componentes que formam a base (como o `App.js` e `index.js`), foram criados  três outros, que são os que interessam para o back-end. Abaixo estão listados:
+
 O `ProductsList.js`, renderiza a página inicial da interface e, como o prórpio nome indica, exibe os produtos em uma tabela contento os dados da de cada produto, juntamente às opções de excluir e editar um produto. Há também a paginação da tabela com uma navegação básica.
+
 O `ProductCreateUpdate.js` é responsável por fornecer um formulário para a criação de um produto novo ou mesmo editar os dados de um produto específico. Os dois componentes citados utilizam a mágica dos _React Hooks_ para o gerenciamento dos estados da aplicação e a construção do formulário.
+
 O `ProductsService.js`, apesar de simples, é fundamental para a comunicação com a API. Ela faz o uso das funcionalidades do _Axios_, que é o pacote instalado para ser o cliente que faz as requisições ao serviço. A classe `ProductsService` tem um método para cada um dos endpoints citados anteriormente, especificando os dados e os métodos HTTP necessários. Os dois componentes mencionados utilizam este componente sempre que é preciso fazer uma chamada à API.
 ```
 createProduct(product){
@@ -130,6 +136,7 @@ Com o ambiente criado e ativado, é hora de clonar o projeto através do link do
 git clone https://github.com/romuloflim/automation-team-store-challenge.git
 ```
 Utilize o editor de código de sua preferência para abrir a pasta do projeto. Lembrando que trabalharemos com as linguagens Python e JavaScript.
+
 Aproveite também para criar o banco de dados PostgreSQL que será utilizado para guardar os dados da aplicação.
 No editor de código, abra o arquivo `settings.py`, que está dentro do diretório `productmanager`. Procure a variável `DATABASES` e adicione as informações do seu banco, junto à `ENGINE`, com o seguinte valor. Por padrão, as configurações estão definidas da seguinte forma:
 ```sh
@@ -156,17 +163,20 @@ Em sistemas MacOS, não há o pacote engine do PostgreSQL `psycopg2`. Então dev
 pip install psycopg2-binary
 ```
 Após a instalação dos pacotes, a aplicação em Python ganha vida, junto às diversas funcionalidades do framework Django.
+
 Executaremos agora o comando do Django para criar as tabelas necessárias do projeto no banco de dados. As tabelas podem ser visualizadas no `models.py`, no diretório `products`, a única aplicação Django criada para este projeto.
 ```sh
 python manage.py migrate
 ```
 Na tabela migrations, a migration `0002_products.py` tem a função `create_data`. Ela é responsável por criar, após a criação das tabelas, uma linha em cada tabela, com seus respectivos dados.
+
 Se o banco de dados foi adicionado corretamente, assim como todos os requisitos instalados, as migrações do projeto para o banco ocorreram com sucesso, com as alterações aparecendo no terminal com um `OK` no final!
 É hora de iniciar o servidor e tornar a API disponível para acesso local. Fazemos isso por meio do seguinte comando:
 ```sh
 python manage.py runserver
 ```
 Servidor iniciado! Hora de rodar a interface do projeto para fazermos as operações disponíveis no servico. 
+
 Via terminal acesse o diretório onde está o front-end da aplicação: `frontend-react`. Vamos instalar as dependências necessárias para o projeto rodar:
 ```sh
 yarn install
