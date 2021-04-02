@@ -101,3 +101,78 @@ createProduct(product){
     }
 ```
 O exemplo acima é um método da classe `ProductsService` e serve para criar um novo produto. Para isso, recebe o objeto do produto como parâmetro e o Axios faz o trabalho de enviar a requisição para a URL da API responsável pela adição do produto no banco de dados, definindo-o como POST.
+
+## Executando o projeto
+
+Os passos para executar o projeto em diferentes sistemas operacionais são muito parecidos, mas é importante cumprir o requisitos abaixo:
+- Ter Python 3 instalado na máquina e certificar se os comandos pip e venv estão sendo executados.
+- Ter o Node.js instalado em uma das versões mais recentes (a partir da 6) e certificar se o yarn está instalado. Caso não esteja, basta executar o comando no terminal do seu sistema: 
+```sh
+npm install --global yarn
+```
+- Ter o PostgreSQL  a partir da versão 11.5 instalado. Ter o PgAdmin 4 instalado facilita a manipulação de bancos porque oferece uma interface para os comandos SQL.
+
+Para dar início ao projeto, crie o diretório onde ele será executado e acesse-o via o terminal do seu sistema. Dentro do diretório iremos criar o ambiente virtual Python por meio do comando:
+```sh
+python3 -m venv ./env
+```
+Em seguida, podemos ativar nosso ambiente virtual, executando o seguinte comando:
+Para Ubuntu e MacOS:
+```sh
+source env/bin/activate
+```
+No Windows:
+```sh
+env\\Scripts\\activate
+```
+Com o ambiente criado e ativado, é hora de clonar o projeto através do link do repositório:
+```sh
+git clone https://github.com/romuloflim/automation-team-store-challenge.git
+```
+Utilize o editor de código de sua preferência para abrir a pasta do projeto. Lembrando que trabalharemos com as linguagens Python e JavaScript.
+Aproveite também para criar o banco de dados PostgreSQL que será utilizado para guardar os dados da aplicação.
+No editor de código, abra o arquivo `settings.py`, que está dentro do diretório `productmanager`. Procure a variável `DATABASES` e adicione as informações do seu banco, junto à `ENGINE`, com o seguinte valor. Por padrão, as configurações estão definidas da seguinte forma:
+```sh
+'django.db.backends.postgresql'
+```
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dafiti_db',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': '',
+        'PORT': '5432',
+    }
+}
+```
+Dando prosseguimento às configurações, instalaremos os requisitos do projeto Python, que são os pacotes presentes no arquivo `requirements.txt` do nosso projeto.
+```sh
+pip install -r requirements.txt
+```
+Em sistemas MacOS, não há o pacote engine do PostgreSQL `psycopg2`. Então devemos ir no arquivo `requirements.txt` e apagar a linha em que ele aparece (`psycopg2=2.8.....`) para não dar erro na instalação dos requisitos. Ele é necessário para a execução do projeto, então instalaremos o pacote binário disponível:
+```sh
+pip install psycopg2-binary
+```
+Após a instalação dos pacotes, a aplicação em Python ganha vida, junto às diversas funcionalidades do framework Django.
+Executaremos agora o comando do Django para criar as tabelas necessárias do projeto no banco de dados. As tabelas podem ser visualizadas no `models.py`, no diretório `products`, a única aplicação Django criada para este projeto.
+```sh
+python manage.py migrate
+```
+Na tabela migrations, a migration `0002_products.py` tem a função `create_data`. Ela é responsável por criar, após a criação das tabelas, uma linha em cada tabela, com seus respectivos dados.
+Se o banco de dados foi adicionado corretamente, assim como todos os requisitos instalados, as migrações do projeto para o banco ocorreram com sucesso, com as alterações aparecendo no terminal com um `OK` no final!
+É hora de iniciar o servidor e tornar a API disponível para acesso local. Fazemos isso por meio do seguinte comando:
+```sh
+python manage.py runserver
+```
+Servidor iniciado! Hora de rodar a interface do projeto para fazermos as operações disponíveis no servico. 
+Via terminal acesse o diretório onde está o front-end da aplicação: `frontend-react`. Vamos instalar as dependências necessárias para o projeto rodar:
+```sh
+yarn install
+```
+Com as dependências instaladas, hora de iniciar o front-end via yarn:
+```
+yarn start
+```
+E voilá! Nossa página inicial já roda no navegador trazendo um produto. Hora de explorar as funcionalidades!

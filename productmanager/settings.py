@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'productmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'productmanager_dafiti',
+        'NAME': 'dafiti_db',
         'USER': 'postgres',
-        'PASSWORD': '1q2w3e4r',
+        'PASSWORD': 'root',
         'HOST': '',
         'PORT': '5432',
     }
