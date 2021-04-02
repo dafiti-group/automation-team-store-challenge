@@ -123,7 +123,7 @@ source env/bin/activate
 ```
 No Windows:
 ```sh
-env\\Scripts\\activate
+env\Scripts\activate
 ```
 Com o ambiente criado e ativado, é hora de clonar o projeto através do link do repositório:
 ```sh
