@@ -12,41 +12,41 @@ def home(request):
     return render(request, "core/base.html")  
 
 
-def produtos(request, page=None):
-    
-    # compare_list = request.session['lista']
-    # session = request.session
+def produtos(request):
+    filtro = ''
+    marca = request.GET.get('marca')
+    descricao = request.GET.get('descricao')
+    loja = request.GET.get('loja')
 
     url_base = 'https://api-compare-dafiti.herokuapp.com/api/produtos/'
-
-    # response = requests.get(url_base)
-
-    # data = response.json()
-
-    # for page in pages:
-    #     print("calling %s" % (page.url))
-    #     page.raise_for_status()
-    #     print("found %s results" % (len(page.json()['results'])))
-    # count_all = int(response.json()['count'])
-    # qtd_page = count_all/30
-    
-    # num_page = []
-            
-    # for pag in range(1,int(qtd_page+2)):
-    #     num_page.append(pag)
     
     if request.session.get('lista') is None:
         request.session['lista'] = {}
 
-    if request.method == 'GET' and request.GET.get('descricao'):  
-        search_text = request.GET.get('descricao')
-        url = f'{url_base}?descricao={search_text}'
+    if request.method == 'GET':
+        if descricao:  
+            filtro += f'?&descricao={descricao}'
+        if marca:
+            marca = marca.replace(' ', '+')
+            filtro += f'?&marca={marca}'
+        if loja:
+            filtro += f'?&loja={loja}'
+        url = f'{url_base}{filtro}'
     else:
         # url = f'{url_base}?page={page}'
         url = f'{url_base}'
     response = requests.get(url)
     data = response.json()['results']
-    return render(request, "core/list_produto.html", {"produto_list": data})
+
+    url_marcas = 'http://localhost:8000/api/produtos/marcas/'
+    response_marcas = requests.get(url_marcas)
+    data_marcas = response_marcas.json()
+
+    url_lojas = 'http://localhost:8000/api/produtos/lojas/'
+    response_lojas = requests.get(url_lojas)
+    data_lojas = response_lojas.json()
+
+    return render(request, "core/list_produto.html", {"produto_list": data, "data_marcas": data_marcas, "data_lojas": data_lojas})
 
 def produto_compare(request, id):
     session_key = request.session.session_key
@@ -63,7 +63,7 @@ def produto_compare(request, id):
         comparacao_id = response_prod.json()['results'][0]['id']
         preco_original = response_prod.json()['results'][0]['produto']['preco_original']
         preco_promocional = response_prod.json()['results'][0]['produto']['preco_promocional']
-        
+
         if float(preco_promocional) > 0:
             preco_produto = preco_promocional
             promocao = True
