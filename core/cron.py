@@ -5,7 +5,8 @@ import re
 
 def scraping():
     all_results = scraper.get_all_products()
-    
+    Produto.objects.all().update(status=False)
+
     for result in all_results:
         produto = Produto.objects.filter(descricao=result["descricao"], loja=result["loja"]).exists()
         if not produto:
@@ -20,7 +21,7 @@ def scraping():
                 loja=result["loja"],
                 marca=result["marca"]
             )
-            print('Produto registrado')
+            # print('Produto registrado')
         else:
             produto = Produto.objects.get(descricao=result["descricao"], loja=result["loja"])
             preco = produto.preco_original
@@ -35,7 +36,7 @@ def scraping():
                     link_img_produto=result['link_img_produto'],
                     status=result['status']
                 )
-                print ('Produto está em promoção')
+                # print ('Produto está em promoção')
             
             if preco_promo != result["preco_promocional"] and result['promocao'] == False and result['status']:
                 Produto.objects.filter(descricao=result["descricao"],loja=result["loja"]).update(
@@ -45,12 +46,14 @@ def scraping():
                     link_img_produto=result['link_img_produto'],
                     status=result['status']
                 )
-                print ('Produto não está em promoção')
+                # print ('Produto não está em promoção')
             
             if link_img_produto != result['link_img_produto'] and result['status']==True:
                 Produto.objects.filter(descricao=result["descricao"],loja=result["loja"]).update(
                     link_img_produto=result['link_img_produto'],
                     status=result['status'])
 
-                print('Link da imagem do produto mudou')
-    print('Todos os produtos adicionados')
+    #             print('Link da imagem do produto mudou')
+            if result['status']==True:
+                Produto.objects.filter(descricao=result["descricao"],loja=result["loja"]).update(status=True)
+    print('Todos os produtos foram adicionados')
