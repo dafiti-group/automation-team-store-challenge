@@ -82,6 +82,9 @@ hr{
 }
 a:link, h6{ 
     text-decoration:none; 
+    /* color: black; */
+}
+h6{
     color: black;
 }
 .table a:first-child {
