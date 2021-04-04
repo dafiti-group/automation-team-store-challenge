@@ -38,11 +38,11 @@ def produtos(request):
     response = requests.get(url)
     data = response.json()['results']
 
-    url_marcas = 'http://localhost:8000/api/produtos/marcas/'
+    url_marcas = 'https://api-compare-dafiti.herokuapp.com/api/produtos/marcas/'
     response_marcas = requests.get(url_marcas)
     data_marcas = response_marcas.json()
 
-    url_lojas = 'http://localhost:8000/api/produtos/lojas/'
+    url_lojas = 'https://api-compare-dafiti.herokuapp.com/api/produtos/lojas/'
     response_lojas = requests.get(url_lojas)
     data_lojas = response_lojas.json()
 
