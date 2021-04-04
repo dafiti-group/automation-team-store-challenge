@@ -10,6 +10,10 @@ class ProdutoFilterSet(filters.FilterSet):
         field_name="loja", lookup_expr="icontains"
     )
 
+    marca = filters.CharFilter(
+        field_name="marca", lookup_expr="icontains"
+    )
+
     #menor
     preco_menor = filters.NumberFilter(
         field_name="preco_original", lookup_expr='gte'
@@ -31,7 +35,7 @@ class ProdutoFilterSet(filters.FilterSet):
     )
     class Meta:
         model = Produto
-        fields = ["descricao", "loja", "preco_original", "preco_menor", "preco_maior", "preco_promo_menor", "preco__promo_maior"]
+        fields = ["descricao", "loja", "preco_original", "preco_menor", "preco_maior", "preco_promo_menor", "preco__promo_maior", "marca"]
         
 class CompareProdutoFilterSet(filters.FilterSet):
     produto = filters.CharFilter(
