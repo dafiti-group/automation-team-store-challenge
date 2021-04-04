@@ -14,6 +14,7 @@ from pathlib import Path
 from decouple import config
 import os
 from dj_database_url import parse as dburl
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -163,6 +164,7 @@ STATICFILES_DIRS = [
 CRONJOBS = [
     ('*/60 * * * *', 'core.cron.scraping')
 ]
+
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:3000",
 # ]
@@ -173,4 +175,5 @@ CRONJOBS = [
 # SESSION_COOKIE_SAMESITE = 'None'
 # SESSION_COOKIE_HTTPONLY = False
 # SESSION_COOKIE_SECURE = True
+
 

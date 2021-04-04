@@ -30,16 +30,16 @@ class Scraping():
 
     def scraping_dafiti(self):
         chrome_options = Options()
-        # chrome_options.binary_location = config('GOOGLE_CHROME_BIN')
+        chrome_options.binary_location = config('GOOGLE_CHROME_BIN')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--headless')
         
-        # driver = webdriver.Chrome(executable_path=config('CHROMEDRIVER_PATH'), options=chrome_options)
-        driver = webdriver.Remote(
-            command_executor="http://selenium:4444/wd/hub",
-            desired_capabilities=DesiredCapabilities.FIREFOX
-        )
+        driver = webdriver.Chrome(executable_path=config('CHROMEDRIVER_PATH'), options=chrome_options)
+        # driver = webdriver.Remote(
+        #     command_executor="http://selenium:4444/wd/hub",
+        #     desired_capabilities=DesiredCapabilities.FIREFOX
+        # )
         # driver = webdriver.Chrome(executable_path='./core/scraping/chromedriver', options=chrome_options)
         urls_dafiti = []  
         for url in self.url_dafiti:
@@ -137,16 +137,16 @@ class Scraping():
 
     def scraping_zattini(self):
         chrome_options = Options()
-        # chrome_options.binary_location = config('GOOGLE_CHROME_BIN')
+        chrome_options.binary_location = config('GOOGLE_CHROME_BIN')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--headless')
         
-        # driver = webdriver.Chrome(executable_path=config('CHROMEDRIVER_PATH'), options=chrome_options)
-        driver = webdriver.Remote(
-            command_executor="http://selenium:4444/wd/hub",
-            desired_capabilities=DesiredCapabilities.FIREFOX
-        )
+        driver = webdriver.Chrome(executable_path=config('CHROMEDRIVER_PATH'), options=chrome_options)
+        # driver = webdriver.Remote(
+        #     command_executor="http://selenium:4444/wd/hub",
+        #     desired_capabilities=DesiredCapabilities.FIREFOX
+        # )
         # driver = webdriver.Chrome(executable_path='./core/scraping/chromedriver', options=chrome_options)
         urls_zattini = []   
 
