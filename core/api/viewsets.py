@@ -157,7 +157,7 @@ class PromocaoLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     serializer_class = PromocaoLojaSerializer
     
     def get_queryset(self):
-        queryset = Produto.objects.values('loja').filter(promocao=True).order_by().annotate(quantidade_promo=Count('loja'))
+        queryset = Produto.objects.values('loja').filter(promocao=True).order_by('loja').annotate(quantidade_promo=Count('loja'))
         return queryset
 
 
@@ -194,7 +194,7 @@ class ConcorrenciaLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
         :qtd_vezes - campo se refere a quantas vezes essa loja esteve mais barata que a outra
     """
 
-    queryset = ContadorLoja.objects.all().order_by('-qtd_vezes')
+    queryset = ContadorLoja.objects.all().order_by('loja')
     serializer_class = ConcorrenciaLojaSerializer
 
     def contador_loja(loja):
