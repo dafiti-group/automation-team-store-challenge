@@ -1,0 +1,138 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Concorrencia - {{ block.super }}
+{% endblock title %}
+{% block content %}
+<section class="container section-concorrencia">
+    <div class="row concorrencia">
+        <div class="col-md-6">
+            <h2 class="text-center">
+                Concorrência comparações
+            </h2>
+            <div>
+                <canvas id="concorrenciaChart" width="200" height="200"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6 texto-concorrencia">
+            <p>
+                A concorrência em comparações apresenta quantas vezes qual das lojas foi mais 
+                barata em relação a outra. E qual delas traz mais vantagem ao cliente.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="container section-concorrencia">
+    <div class="row concorrencia">
+        
+        <div class="col-md-6">
+            <h2 class="text-center">
+                Concorrência promoções
+            </h2>
+            <div>
+                <canvas id="promocaoChart" width="200" height="200"></canvas>
+            </div>
+
+        </div>
+
+        <div class="col-md-6 texto-concorrencia" style="margin: 0 auto;">
+            <p>
+                A concorrência em promoções apresenta qual das lojas 
+                possui maior quantidade de promoções.
+            <p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    var ctx = document.getElementById("concorrenciaChart");
+    var lojas = JSON.parse('{{ lojas|safe }}');
+    var quantidade = JSON.parse('{{ quantidade|safe }}');
+
+    var concorrenciaChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: lojas,
+            datasets: [{
+                label: 'Concorrência em comparações',
+                data: quantidade,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+
+    var ctx2 = document.getElementById("promocaoChart");
+    var lojas_promo = JSON.parse('{{ lojas_promo|safe }}');
+    var quantidade_promo = JSON.parse('{{ quantidade_promo|safe }}');
+
+    var productsChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: lojas_promo,
+            datasets: [{
+                label: 'Concorrência em promoções',
+                data: quantidade_promo,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+{% endblock %}

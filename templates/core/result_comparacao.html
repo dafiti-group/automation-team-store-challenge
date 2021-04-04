@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Resultado comparação 
+{% endblock title %}
+{% block content %}
+    <br>
+    <br>
+    <section class="container section-result">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-4"></div>
+            {%if produto_list%}
+                <div class="col-md-4">
+                    <h2 class="text-center">Este é o melhor produto para você!</h2>
+                    <br>
+                    <br>
+                    {% for prod in produto_list %}
+                        <div class="card text-center" style="width: 18rem;">
+                            <img class="card-img-top" src={{prod.produto.link_img_produto}} alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{prod.produto.descricao}}</h5>
+                                <p class="card-text"><b>Valor: </b> R$ {{prod.preco_produto}}</p>
+                                <p class="card-text"><b>Loja: </b>{{prod.produto.loja}}</p>
+                                <p class="card-text"><b>Marca: </b>{{prod.produto.marca}}</p>
+                            </div>
+                            <a class="btn btn-primary" target="_blank" href="{{prod.produto.link_produto}}">Ir para o site do produto</a>
+                        </div>
+                    {% endfor %}
+                    <br>
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <h2>Você não fez nenhuma comparação</h2>
+                    <a class="btn btn-primary" href="{% url 'core:produtos' %}">Ver produtos</a>
+                </div>
+            {% endif %}
+            <div class="col-md-4"></div>
+        </div>
+        <br>
+        <br>
+    </section>
+{% endblock content %}
