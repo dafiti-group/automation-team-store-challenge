@@ -5,7 +5,6 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib import messages
 from django.conf import settings
-from requests_paginator import RequestsPaginator
 import requests, json
 
 
