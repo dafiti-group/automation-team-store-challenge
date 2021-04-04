@@ -8,16 +8,20 @@ from .serializers import (
     ComparacaoSerializer, 
     ConcorrenciaLojaSerializer
 )
+from rest_framework.decorators import action
 from rest_framework import status, viewsets, mixins
 from rest_framework.response import Response
 from django.db.models import Count, Min, Max
+from rest_framework.pagination import PageNumberPagination
 import copy
 
 class ProdutoViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     """
         Listagem de tênis das lojas Dafiti e Zattini
     """
-    queryset = Produto.objects.all().order_by('id')
+    paginator = PageNumberPagination()
+    paginator.page_size = 24
+    queryset = Produto.objects.all().order_by('-promocao')
     serializer_class = ProdutoSerializer
     filter_class = ProdutoFilterSet
 
@@ -38,8 +42,19 @@ class CompareProdutoViewSet(mixins.CreateModelMixin,
 
         self.compare_list = self.request.session['lista']
         self.session = self.request.session
-        session_key = self.request.session.session_key
-        queryset = CompareProduto.objects.filter(session_key=session_key)
+
+        if 'session_key' in self.request.GET:
+            sessao = self.request.GET['session_key']  
+            session_key = sessao
+        else:
+            session_key = self.request.session.session_key
+
+        if 'produto_id' in self.request.GET and 'session_key' in self.request.GET:
+            produto = self.request.GET['produto_id']
+            queryset = CompareProduto.objects.filter(produto_id=produto, session_key=session_key)  
+        else:
+            queryset = CompareProduto.objects.filter(session_key=session_key)
+            
         return queryset
 
     def get_serializer_class(self):
@@ -53,13 +68,7 @@ class CompareProdutoViewSet(mixins.CreateModelMixin,
         return serializer_map.get(self.action, super().get_serializer_class())
     
     def create(self, request, *args, **kwargs):
-
-        if request.session.get('lista') is None:
-            request.session['lista'] = {}
-
-        self.compare_list = request.session['lista']
-        self.session = request.session
-
+        
         data = request.data.copy()
         produto = data['produto']
 
@@ -73,17 +82,47 @@ class CompareProdutoViewSet(mixins.CreateModelMixin,
             promocao = True
         else:
             preco_produto = preco_produto
-            promocao = False
+            promocao = False 
 
-        data['session_key'] = self.session.session_key
+        if data['session_key']:
+            session_key = data['session_key']
+        else:
+            session_key = self.request.session.session_key
+
+        data['session_key'] = session_key
         data['preco_produto'] = preco_produto
         data['promocao'] = promocao
         data['loja'] = loja
 
-        serializer = CompareProdutoSerializer(data=data)
+        serializer = CompareProdutoSerializer(data=data) 
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def partial_update(self, request, *args, **kwargs):
+        data = request.data.copy()
+
+        instance = CompareProduto.objects.get(pk=kwargs['pk'])
+        data['preco_produto'] = data['preco_produto']
+        data['promocao'] = data['promocao']
+        serializer = CompareProdutoSerializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+		
+
+    @action(detail=False, methods=['DELETE'], url_path="produto/(?P<produto_id>[^/.]+)", url_name="compare-produto")
+    def produto(self, request, produto_id):
+        data = request.data.copy()
+        
+        try:
+            session_key = data['session_key']
+        except:
+            session_key = self.request.session.session_key
+
+        instance = CompareProduto.objects.get(produto_id=produto_id, session_key=session_key)
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class PromocaoLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
@@ -104,7 +143,11 @@ class ComparacaoViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     serializer_class = ComparacaoSerializer
 
     def get_queryset(self):
-        session_key = self.request.session.session_key
+
+        if 'session_key' in self.request.GET:
+            session_key = self.request.GET['session_key']
+        else:
+            session_key = self.request.session.session_key
         queryset = CompareProduto.objects.raw(
             f'''select loja, MIN(preco_produto) OVER (PARTITION BY preco_produto), promocao, produto_id, id
             from core_compareproduto
@@ -118,6 +161,7 @@ class ComparacaoViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
             self.request.session.flush()
         except:
             return queryset
+        # self.request.session.flush()
         return queryset 
 
 class ConcorrenciaLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
@@ -126,7 +170,7 @@ class ConcorrenciaLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
         :qtd_vezes - campo se refere a quantas vezes essa loja esteve mais barata que a outra
     """
 
-    queryset = ContadorLoja.objects.all().order_by('id')
+    queryset = ContadorLoja.objects.all().order_by('-qtd_vezes')
     serializer_class = ConcorrenciaLojaSerializer
 
     def contador_loja(loja):
