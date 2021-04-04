@@ -43,3 +43,17 @@ class ConcorrenciaLojaSerializer(serializers.ModelSerializer):
         model = ContadorLoja
         fields = ("loja","qtd_vezes",)  
 
+
+class MarcaSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Produto
+        fields = ("marca",)    
+
+
+class LojaSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Produto
+        fields = ("loja",)          
+
