@@ -150,5 +150,5 @@ dmypy.json
 # vscode settings.json
 .vscode/
 
-# /static
+# static
 .env
