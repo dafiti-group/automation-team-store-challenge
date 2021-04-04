@@ -22,7 +22,7 @@ class ProdutoViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     
     paginator = PageNumberPagination()
     paginator.page_size = 24
-    queryset = Produto.objects.all().order_by('preco_original')
+    queryset = Produto.objects.all().order_by('-promocao')
     serializer_class = ProdutoSerializer
     filter_class = ProdutoFilterSet
 
