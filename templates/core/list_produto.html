@@ -12,12 +12,45 @@ Produtos
         </h2>
         <hr>
         <br>
+        <div class="row">
+            <h6>Filtros de pesquisa</h6>
+            <form action="{% url 'core:produtos' %}" method="get">
+                <div class="form-row row">
+                    <div class="form-group col-md-3">
+                        <label for="marca">Marca</label>
+                        <select class="form-select" id="exampleInputEmail1" name="marca" id="marca" aria-label=".form-select-sm example">
+                            <option value="">Selecione uma marca</option>
+                            {% for marca in data_marcas %}
+                                <option value="{{marca.marca}}">{{marca.marca}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="loja">Loja</label>
+                        <select class="form-select" id="exampleInputEmail1" name="loja" id="loja" aria-label=".form-select-sm example">
+                            <option value="">Selecione uma loja</option>
+                            {% for loja in data_lojas %}
+                                <option value="{{loja.loja}}">{{loja.loja}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <br>
+                        <button class="btn btn-outline-dark" type="submit">Procurar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="row d-flex justify-content-center">
         {% for prod in produto_list %}
         
             <form action="{% url 'core:produto_compare' prod.id%}" method="post"style="width: 300px;">
                 {% csrf_token %}
-                <div class="card mb-3 col-sm col-md-3 col-lg-4 col-xl-4" style="width: 300px;">
+                <div class="card mb-3 col-sm-6 col-md-3 col-lg-4 col-xl-4" style="width: 300px;">
                     <div class="row g-0">
                     <div class="col-md-4 text-center">
                         <a href="{{prod.link_produto}}" target="_blank">
