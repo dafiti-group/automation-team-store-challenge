@@ -11,41 +11,53 @@ from selenium.webdriver.chrome.options import Options
 from time import sleep
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import re
+from decouple import config
 
 
 class Scraping():
-    # url_dafiti = 'https://www.dafiti.com.br/bolsas-e-acessorios-femininos/bolsas/santa-lolla/?sort=popularity'
-    # url_zattini = 'https://www.zattini.com.br/refactoring/acessorios/feminino?mi=ztt_hm_fem_cat3_bolsaseacessorios&psn=Banner_BarradeCategorias_3fem&fc=barradecategorias&marca=santa-lolla&nsCat=Artificial&sort=relevance&tipo-de-produto=bolsas'
-    url_dafiti = 'https://www.dafiti.com.br/calcados-masculinos/tenis-para-corrida/adidas--adidas-originals--adidas-performance/?cat-pwa=0&campwa=0'
-    url_zattini = 'https://www.zattini.com.br/adidas?mi=ztt_mntop_ESP-MC-adidas&psn=Menu_Top&genero=masculino&tipo-de-produto=tenis&tipo-de-produto=tenis-performance'
-    
-    all_products = []
 
-    def scraping_dafiti():
+    def __init__(self):
+        self.url_dafiti = [
+            'https://www.dafiti.com.br/calcados-masculinos/tenis-para-corrida/adidas--adidas-originals--adidas-performance/?cat-pwa=0&campwa=0',
+            'https://www.dafiti.com.br/calcados-masculinos/nike--nike-sb--nike-sportswear/?cat-pwa=0&campwa=0'
+            ]
+        self.url_zattini = [
+            'https://www.zattini.com.br/adidas?mi=ztt_mntop_ESP-MC-adidas&psn=Menu_Top&genero=masculino&tipo-de-produto=tenis&tipo-de-produto=tenis-performance',
+            'https://www.zattini.com.br/nike?nsCat=Natural&q=nike&genero=masculino&tipo-de-produto=tenis&tipo-de-produto=tenis-performance'
+        ]
+        
+        self.all_products = []
+
+    def scraping_dafiti(self):
         chrome_options = Options()
+        # chrome_options.binary_location = config('GOOGLE_CHROME_BIN')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--headless')
         
-        # driver = webdriver.Chrome(executable_path='/home/nayannanara/automation-team-store-challenge/core/scraping/chromedriver', options=chrome_options)
+        # driver = webdriver.Chrome(executable_path=config('CHROMEDRIVER_PATH'), options=chrome_options)
         driver = webdriver.Remote(
             command_executor="http://selenium:4444/wd/hub",
             desired_capabilities=DesiredCapabilities.FIREFOX
         )
-        driver.get(Scraping.url_dafiti)
-        sleep(3)
-        
-        ul_pag = driver.find_element_by_class_name('pagination-list').find_elements_by_tag_name('li')[-2].text
-        num_page = []
-        
-        for pag in range(1,(int(ul_pag)+1)):
-            num_page.append(pag)
-        
-        urls_dafiti = []   
-        for x in num_page:
-            url = f"{Scraping.url_dafiti}&page={x}"
-            urls_dafiti.append(url)
-        
+        # driver = webdriver.Chrome(executable_path='./core/scraping/chromedriver', options=chrome_options)
+        urls_dafiti = []  
+        for url in self.url_dafiti:
+
+            driver.get(url)
+            sleep(3)
+            
+            ul_pag = driver.find_element_by_class_name('pagination-list').find_elements_by_tag_name('li')[-2].text
+            num_page = []
+            
+            for pag in range(1,(int(ul_pag)+1)):
+                num_page.append(pag)
+            
+             
+            for x in num_page:
+                url_page = f"{url}&page={x}"
+                urls_dafiti.append(url_page)
+            
         for url in urls_dafiti:
             driver.get(url)
             driver.execute_script('window.scrollBy(0, 300)')
@@ -120,33 +132,35 @@ class Scraping():
                     'loja': loja
                 }
                 if preco_original != 0:
-                    Scraping.all_products.append(product)
-        return Scraping.all_products
+                    self.all_products.append(product)
+        return self.all_products
 
-    def scraping_zattini():
+    def scraping_zattini(self):
         chrome_options = Options()
+        # chrome_options.binary_location = config('GOOGLE_CHROME_BIN')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--headless')
         
-        # driver = webdriver.Chrome(executable_path='/home/nayannanara/automation-team-store-challenge/core/scraping/chromedriver', options=chrome_options)
+        # driver = webdriver.Chrome(executable_path=config('CHROMEDRIVER_PATH'), options=chrome_options)
         driver = webdriver.Remote(
             command_executor="http://selenium:4444/wd/hub",
             desired_capabilities=DesiredCapabilities.FIREFOX
         )
-        driver.get(Scraping.url_zattini)
-        sleep(3)
-        
-        ul_pag = driver.find_element_by_class_name('pagination').find_elements_by_tag_name('a')[-2].text
-        num_page = []
-        
-        for pag in range(1,(int(ul_pag)+1)):
-            num_page.append(pag)
-        
+        # driver = webdriver.Chrome(executable_path='./core/scraping/chromedriver', options=chrome_options)
         urls_zattini = []   
-        for x in num_page:
-            url = f"{Scraping.url_zattini}&page={x}"
-            urls_zattini.append(url)
+
+        for url in self.url_zattini:
+            driver.get(url)
+            ul_pag = driver.find_element_by_class_name('pagination').find_elements_by_tag_name('a')[-2].text
+            num_page = []
+            
+            for pag in range(1,(int(ul_pag)+1)):
+                num_page.append(pag)
+            
+            for x in num_page:
+                url_page = f"{url}&page={x}"
+                urls_zattini.append(url_page)
             
         for url in urls_zattini:
             driver.get(url)
@@ -160,10 +174,10 @@ class Scraping():
             sleep(2)
             driver.execute_script('window.scrollBy(0, 1800)')
             driver.execute_script('window.scrollBy(0, 2100)')
+    
         
-            
             products = driver.find_elements_by_class_name('item-card')
-            
+        
             for product in products:
                 descricao = product.find_element_by_class_name('item-card__description__product-name').text
                 marca = product.find_element_by_xpath('//*[@id="content"]/section/section[2]/h1').text
@@ -181,7 +195,7 @@ class Scraping():
                     except:
                         preco_original = 0.00
                         preco_promocional = 0.00
-                    
+                
                 if preco_promocional == 0:
                     promocao = False
                 else:
@@ -211,13 +225,14 @@ class Scraping():
                     'loja': loja
                 }
                 if preco_original != 0:   
-                    Scraping.all_products.append(product)
-        return Scraping.all_products
+                    self.all_products.append(product)
+        return self.all_products
 
 
     def get_all_products():
-        print('ok')
-        all_products = Scraping.scraping_dafiti() + Scraping.scraping_zattini()
+        scraper = Scraping()
+        all_products = scraper.scraping_dafiti() + scraper.scraping_zattini()
+        # all_products = scraper.scraping_zattini()
         return all_products
 # Scraping.get_all_products()
 
