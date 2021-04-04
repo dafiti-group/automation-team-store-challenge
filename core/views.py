@@ -64,7 +64,7 @@ def produto_compare(request, id):
         preco_original = response_prod.json()['results'][0]['produto']['preco_original']
         preco_promocional = response_prod.json()['results'][0]['produto']['preco_promocional']
         
-        if preco_promocional != 0:
+        if float(preco_promocional) > 0:
             preco_produto = preco_promocional
             promocao = True
         else: 
