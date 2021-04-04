@@ -14,7 +14,6 @@ from pathlib import Path
 from decouple import config
 import os
 from dj_database_url import parse as dburl
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
