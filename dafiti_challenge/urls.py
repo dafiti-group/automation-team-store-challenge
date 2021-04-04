@@ -19,6 +19,8 @@ from django.urls import path, include
 from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.conf import settings
+from django.conf.urls.static import static
 from core.api.viewsets import ProdutoViewSet, CompareProdutoViewSet, PromocaoLojaViewSet, ComparacaoViewSet, ConcorrenciaLojaViewSet
 
 schema_view = get_schema_view(
@@ -41,6 +43,7 @@ router.register(r'concorrencia-loja', ConcorrenciaLojaViewSet,basename='concorre
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path("", include("core.urls")),
     path('admin/', admin.site.urls),
     path("docs/", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
