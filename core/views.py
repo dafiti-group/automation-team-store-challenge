@@ -14,8 +14,8 @@ def home(request):
 
 def produtos(request, page=None):
     
-    compare_list = request.session['lista']
-    session = request.session
+    # compare_list = request.session['lista']
+    # session = request.session
 
     url_base = 'https://api-compare-dafiti.herokuapp.com/api/produtos/'
 
