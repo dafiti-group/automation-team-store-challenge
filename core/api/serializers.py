@@ -6,16 +6,11 @@ class ProdutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Produto
         fields = ("id","descricao", "preco_original", "preco_promocional", "promocao", "marca", "loja", "link_produto", "link_img_produto")
-        
-class ProdutoListSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Produto
-        fields = ("id","descricao")
 
 class CompareProdutoListSerializer(serializers.ModelSerializer):
     
-    produto = ProdutoListSerializer(read_only=True)
+    produto = ProdutoSerializer(read_only=True)
     
     class Meta:
         model = CompareProduto
@@ -29,7 +24,7 @@ class CompareProdutoSerializer(serializers.ModelSerializer):
 
 class ComparacaoSerializer(serializers.ModelSerializer):
     
-    produto = ProdutoListSerializer(read_only=True)
+    produto = ProdutoSerializer(read_only=True)
     
     class Meta:
         model = CompareProduto
