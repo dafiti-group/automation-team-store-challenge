@@ -6,7 +6,9 @@ from .serializers import (
     CompareProdutoSerializer, 
     PromocaoLojaSerializer,
     ComparacaoSerializer, 
-    ConcorrenciaLojaSerializer
+    ConcorrenciaLojaSerializer,
+    MarcaSerializer,
+    LojaSerializer,
 )
 from rest_framework.decorators import action
 from rest_framework import status, viewsets, mixins
@@ -21,10 +23,32 @@ class ProdutoViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     """
     
     paginator = PageNumberPagination()
-    paginator.page_size = 24
+    paginator.page_size = 40
     queryset = Produto.objects.all().order_by('-promocao')
     serializer_class = ProdutoSerializer
     filter_class = ProdutoFilterSet
+
+    @action(detail=False, methods=['GET'], url_path="marcas", url_name="marcas-produto")
+    def produto(self, request):
+
+        """
+            Listagem das marcas dos produtos
+        """
+        queryset = Produto.objects.values('marca').annotate(total=Count('marca')). order_by('marca')
+
+        serializer = MarcaSerializer(queryset, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['GET'], url_path="lojas", url_name="lojas-produto")
+    def produto_lojas(self, request):
+
+        """
+            Listagem das lojas
+        """
+        queryset = Produto.objects.values('loja').annotate(total=Count('loja')). order_by('loja')
+
+        serializer = LojaSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 class CompareProdutoViewSet(mixins.CreateModelMixin,
                    mixins.UpdateModelMixin,
@@ -162,7 +186,6 @@ class ComparacaoViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
             self.request.session.flush()
         except:
             return queryset
-        # self.request.session.flush()
         return queryset 
 
 class ConcorrenciaLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
@@ -182,5 +205,3 @@ class ConcorrenciaLojaViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
             data.update(qtd_vezes=qtd_vezes)
         else:
             ContadorLoja.objects.create(loja=loja, qtd_vezes=1)
-
-    
