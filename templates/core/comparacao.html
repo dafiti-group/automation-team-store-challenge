@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Comparação{% endblock title %}
+
+{% block content %}
+
+
+<section class="container section-concorrencia">
+    {% for message in messages %}
+    <div class="container alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    <div class="container my-3 table-responsive">
+        {% if produto_list %}
+        <h2 class="font-weight-bold">Lista de comparação</h2>
+        <br>
+        <table class="table">
+            <thead>
+                <tr class="bg-light">
+                    <th scope="col">Produto</th>
+                    <th scope="col">Loja</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in produto_list %}
+                <tr>
+                    <td class="align-middle">
+                        <a target="_blank" class="text-decoration-none" href="{{ item.produto.link_produto }}"> {{ item.produto.descricao }}</a>
+                    </td>
+                    <td class="align-middle">
+                        <h6 class="card-text font-weight-bold">{{ item.loja }}</h6>
+                    </td>
+                    <td class="align-middle">
+                        <h6 class="card-text font-weight-bold">{{ item.produto.marca }}</h6>
+                    </td>
+                    <td class="align-middle">
+                        <h6 class="card-text font-weight-bold">R$ {{ item.preco_produto }}</h6>
+                    </td>
+                    <td>
+                        <form action="{% url 'core:remove' item.produto.id%}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" style="background-color: transparent;border: none;">
+                                <i class="fa fa-remove" style="font-size:30px;color:red"></i>
+                            </button>              
+                        </form>       
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <div class="text-center">
+            <a class="btn btn-primary" href="{% url 'core:comparacao' %}">Fazer comparacao</a>
+            <a class="btn btn-primary" href="{% url 'core:produtos' %}">Ver produtos</a>
+        </div>
+        {% else %}
+            <h2 class="font-weight-bold text-center">Você não escolheu produtos para comparar!</h2>
+        {% endif %}
+        <br>
+        
+    </div>
+</section>
+
+{% endblock content %}
