@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000';
+const URL_LOCAL = 'http://localhost:8000';
+const URL_HEROKU = 'https://dafiti-produtos.herokuapp.com';
+
+const API_URL = URL_HEROKU
 
 export default class ProductsService {
 
