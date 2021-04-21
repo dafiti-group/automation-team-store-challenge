@@ -1,10 +1,13 @@
-from django.urls import path
-
+from django.urls import include, path
+from rest_framework import routers
 from . import views
 
 app_name = "women_shoes"
 
+router = routers.DefaultRouter()
+# router.register(r'women-shoes', views.WomenShoesViewSet)
+
 urlpatterns = [
-    path('', views.index, name='index'),
-    # path('women_shoes_list/<int:id>/', views.women_shoes_list, name='women_shoes_list'),
+    path('women_shoes/', views.women_shoes_list),
+    path('women_shoes/<int:pk>/', views.women_shoes_detail)
 ]

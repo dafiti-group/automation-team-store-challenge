@@ -6,13 +6,20 @@ while ! $(nc -z db 5432); do
     sleep 0.1
 done
 
-python manage.py makemigrations
-python manage.py migrate
-
 echo "------PostgreSQL started-------"
 
-python manage.py collectstatic --no-input
+if [[ $ONLY_CELERY = "FALSE" ]]
+then
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py collectstatic --no-input
 
-gunicorn dafitishoes.wsgi:application --bind :8000 --workers=3 --reload
+else
+    while true; do
+        sleep 1
+    done
+fi
+
+gunicorn dafitishoes.wsgi:application --bind 0.0.0.0:8000 --workers=3 --reload
 
 exec "$@"

@@ -1,7 +1,11 @@
-FROM nginx
+# FROM nginx
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d
+# RUN rm /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d
+
+FROM redis:alpine
+WORKDIR /redis
+COPY redis.conf /usr/local/etc/redis/redis.conf
 
 # pull official base image
 FROM python:3.8.3-alpine

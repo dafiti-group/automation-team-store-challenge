@@ -3,14 +3,13 @@ version: "3.9"
 services:
   web:
     build: ./
-    restart: always
     volumes:
-      - static_volume:/usr/src/automation-team-store-challenge/static
+      - /web:/dafitishoes 
     ports:
       - 8000:8000
-    # expose: 
-      # - "8000"
-      # - "6379"
+    expose:
+      - 8000
+      - 6379
     env_file:
       - env.dev
     depends_on:
@@ -28,15 +27,28 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
-  nginx:
-    build: .
+  redis:
+    image: redis:alpine
+    privileged: true
     ports:
-      - 1337:80
+      - 6379:6379
+  celery:
+    restart: always
+    command: celery -A core worker -l info
+    build:
+      context: .
     volumes:
-      - static_volume:/static_volume
+      - ./web:/dafitishoes
+    environment:
+      - DB_HOST=db
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_PORT=5432
     depends_on:
+      - db
+      - redis
       - web
 volumes:
   postgres_data:
-  static_volume:
 
