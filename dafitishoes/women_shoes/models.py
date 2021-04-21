@@ -17,3 +17,9 @@ class WomenShoes(models.Model):
     name = models.TextField(blank=True)
     price = models.DecimalField(max_digits=9, decimal_places=2)
     weight = models.DecimalField(max_digits=9, decimal_places=2)
+
+    def get_shoe(self):
+        return self.name + ' is from manufacturer ' + self.manufacturer
+
+    class Meta:
+        ordering = ['id']

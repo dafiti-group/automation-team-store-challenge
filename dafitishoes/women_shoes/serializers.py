@@ -11,7 +11,6 @@ class WomenShoesSerializer(serializers.ModelSerializer):
     count = serializers.IntegerField(required=False)
     dateAdded = serializers.DateTimeField(initial=datetime.date.today)
     dateUpdated = serializers.DateTimeField(initial=datetime.date.today)
-    dimensions = serializers.CharField(required=False, allow_blank=True, max_length=50)
     manufacturer = serializers.CharField(required=False, allow_blank=True, max_length=50)
     name = serializers.CharField(style={'base_template': 'textarea.html'})
     price = serializers.DecimalField(max_digits=9, decimal_places=2)
@@ -33,7 +32,6 @@ class WomenShoesSerializer(serializers.ModelSerializer):
         instance.count = validated_data.get('count', instance.count)
         instance.dateAdded = validated_data.get('dateAdded', instance.dateAdded)
         instance.dateUpdated = validated_data.get('dateUpdated', instance.dateUpdated)
-        instance.dimension = validated_data.get('dimension', instance.dimension)
         instance.manufacturer = validated_data.get('manufacturer', instance.manufacturer)
         instance.name = validated_data.get('name', instance.name)
         instance.price = validated_data.get('price', instance.price)
@@ -50,7 +48,6 @@ class WomenShoesSerializer(serializers.ModelSerializer):
             'count',
             'dateAdded',
             'dateUpdated',
-            'dimensions',
             'manufacturer',
             'name',
             'price',
