@@ -39,7 +39,7 @@ class Produto(BaseModel):
     quantidade = models.PositiveIntegerField('Quantidade estoque', default=0)
     preco = models.DecimalField('Preço', decimal_places=2, max_digits=10)
     tipo = models.CharField('Tipo', max_length=50, choices=choices.TIPO_PRODUTO, default=choices.TIPO_PRODUTO_NORMAL)
-    marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
+    marca = models.ForeignKey(Marca, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return f'{self.sku} - {self.nome}'
