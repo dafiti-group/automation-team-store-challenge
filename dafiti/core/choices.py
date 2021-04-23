@@ -1,0 +1,7 @@
+TIPO_PRODUTO_NORMAL = 'normal'
+TIPO_PRODUTO_GRADE = 'grade'
+
+TIPO_PRODUTO = [
+    (TIPO_PRODUTO_NORMAL, 'Normal'),
+    (TIPO_PRODUTO_GRADE, 'Grade'),
+]
