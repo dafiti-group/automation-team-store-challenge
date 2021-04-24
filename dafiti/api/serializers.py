@@ -30,7 +30,8 @@ class MarcaSerializer(serializers.ModelSerializer):
 class ProdutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Produto
-        fields = ('nome',
+        fields = ('id',
+                  'nome',
                   'sku',
                   'descricao',
                   'quantidade',
@@ -48,14 +49,19 @@ class ProdutoSerializer(serializers.ModelSerializer):
             instance.tipo = validated_data.get('tipo', instance.tipo)
             instance.marca = Marca.objects.get(slug=slugify(validated_data.get('marca')))
             instance.save()
+            return instance
         except Exception as e:
             raise serializers.ValidationError(e.args)
 
     def create(self, validated_data):
         try:
             sku = validated_data.get('sku')
-            produto, _ = Produto.objects.get_or_create(sku=sku)
-            self.update(produto, validated_data)
-            return produto
+            produto = Produto.objects.filter(sku=sku).first()
+            if produto:
+                retorno = self.update(produto, validated_data)
+            else:
+                produto = Produto()
+                retorno = self.update(produto, validated_data)
+            return retorno
         except Exception as e:
             raise serializers.ValidationError(e.args)
