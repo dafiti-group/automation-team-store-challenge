@@ -1,4 +1,4 @@
-# Rodando o projeto
+## Rodando o projeto local
 
 - Clone o repositorio,
 - Instale as dependências com `pip install -r requirements.txt`
@@ -7,6 +7,14 @@
 - execute o projeto com `python manage.py runserver 0.0.0.0:8000`
 - acesse o link `127.0.0.1:8000/admin/` e entre com usuario e senha cadastrado acima
 - no menu acesse a opção Tokens e clique em 'adicionar token' para gerar um token para usar na autenticação da api
+
+## rodando projeto no heroku
+- o projeto foi hospedado no heroku para ser acessado online
+- acesse o link https://teste-filipe-dafiti.herokuapp.com/admin/
+- faça login com usuario 'admin' e senha 'admin'
+- no menu tokens, copie o token cadastrado
+
+## acessando endpoints
 - use um programa para acesar os endpoints, como o insomnia por exemplo;
 - endpoints:
   `http://127.0.0.1:8000/api/v1/marcas/`
