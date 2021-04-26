@@ -14,3 +14,4 @@ sqlparse==0.4.1
 static3==0.7.0
 typing-extensions==3.7.4.3
 urllib3==1.26.4
+psycopg2-binary
