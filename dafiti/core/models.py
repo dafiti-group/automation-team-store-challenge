@@ -1,4 +1,5 @@
 import uuid
+from decimal import Decimal
 
 from django.db import models
 from django.utils.text import slugify
@@ -18,7 +19,7 @@ class BaseModel(models.Model):
 
 class Marca(BaseModel):
     nome = models.CharField('Nome', max_length=100)
-    slug = models.SlugField('slug')
+    slug = models.SlugField('slug', null=True)
 
     def __str__(self):
         return f'{self.nome}'
@@ -40,6 +41,10 @@ class Produto(BaseModel):
     preco = models.DecimalField('Preço', decimal_places=2, max_digits=10)
     tipo = models.CharField('Tipo', max_length=50, choices=choices.TIPO_PRODUTO, default=choices.TIPO_PRODUTO_NORMAL)
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT, null=True)
+
+    @property
+    def total_estoque(self):
+        return Decimal(self.quantidade * self.preco)
 
     def __str__(self):
         return f'{self.sku} - {self.nome}'
