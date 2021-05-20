@@ -1,0 +1,63 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:11-alpine
+    restart: always
+    container_name: dft_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+    networks:
+      - fullstack
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: app
+    container_name: dft_app
+    stdin_open: true
+    expose:
+      - '8000'
+    volumes:
+      - .env:/app/.env
+    command: bash -c "python manage.py migrate && gunicorn backend.wsgi:application -b 0.0.0.0:8000"
+    depends_on:
+      - db
+    networks:
+      - fullstack
+
+  nginx:
+    image: nginx
+    hostname: nginx
+    container_name: dft_nginx
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - fullstack
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    hostname: vuejs
+    container_name: dft_frontend
+    ports:
+      - '80:8080'
+    depends_on:
+      - app
+      - db
+    networks:
+      - fullstack
+
+volumes:
+  pgdata:
+
+networks:
+  fullstack:

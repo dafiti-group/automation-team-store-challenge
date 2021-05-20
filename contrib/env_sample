@@ -1,0 +1,8 @@
+DEBUG=True
+SECRET_KEY=av7&9j%xzai37^jmp4t_3-9so*9l*cn0xy5y@eno6%!2#i45ky
+ALLOWED_HOSTS=127.0.0.1,.localhost,0.0.0.0
+DB_HOST=db
+POSTGRES_DB=mydb
+POSTGRES_USER=myuser
+POSTGRES_PASSWORD=mypass
+DOCKER=True
