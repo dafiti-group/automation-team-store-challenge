@@ -1,0 +1,42 @@
+[
+  {
+    "model": "product.department",
+    "pk": 1,
+    "fields": {
+      "name": "Calçados",
+      "uri": "calcados"
+    }
+  },
+  {
+    "model": "product.department",
+    "pk": 2,
+    "fields": {
+      "name": "Roupas",
+      "uri": "roupas"
+    }
+  },
+  {
+    "model": "product.department",
+    "pk": 3,
+    "fields": {
+      "name": "Acessórios",
+      "uri": "acessorios"
+    }
+  },
+  {
+    "model": "product.department",
+    "pk": 4,
+    "fields": {
+      "name": "Esportes",
+      "uri": "esportes"
+    }
+  },
+  {
+    "model": "product.department",
+    "pk": 5,
+    "fields": {
+      "name": "Beleza",
+      "uri": "beleza"
+    }
+  }
+]

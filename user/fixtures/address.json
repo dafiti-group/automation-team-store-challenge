@@ -1,0 +1,100 @@
+[
+  {
+    "model": "user.address",
+    "pk": 1,
+    "fields": {
+      "zipcode": "04261050",
+      "street": "Praça Monumento",
+      "district": "Vila Monumento",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 32,
+      "complement": "",
+      "user": 1
+    }
+  },
+  {
+    "model": "user.address",
+    "pk": 2,
+    "fields": {
+      "zipcode": "05679140",
+      "street": "Rua Zabumba",
+      "district": "Jardim Panorama",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 543,
+      "complement": "",
+      "user": 2
+    }
+  },
+  {
+    "model": "user.address",
+    "pk": 3,
+    "fields": {
+      "zipcode": "08030320",
+      "street": "Rua Gupeva",
+      "district": "Vila Curuçá",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 198,
+      "complement": "",
+      "user": 3
+    }
+  },
+  {
+    "model": "user.address",
+    "pk": 4,
+    "fields": {
+      "zipcode": "05503110",
+      "street": "Rua Gaston Ramon",
+      "district": "Butantã",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 32,
+      "complement": "",
+      "user": 3
+    }
+  },
+  {
+    "model": "user.address",
+    "pk": 5,
+    "fields": {
+      "zipcode": "08040370",
+      "street": "Rua Faveira do Mato",
+      "district": "Jardim Planalto",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 3526,
+      "complement": "",
+      "user": 3
+    }
+  },
+  {
+    "model": "user.address",
+    "pk": 6,
+    "fields": {
+      "zipcode": "02724050",
+      "street": "Rua Padre Estanislau de Campos",
+      "district": "Vila Carolina",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 3526,
+      "complement": "",
+      "user": 4
+    }
+  },
+  {
+    "model": "user.address",
+    "pk": 7,
+    "fields": {
+      "zipcode": "03269170",
+      "street": "Rua Minaretes",
+      "district": "Vila Tolstoi",
+      "city": "São Paulo",
+      "uf": "SP",
+      "number": 112,
+      "complement": "",
+      "user": 5
+    }
+  }
+]

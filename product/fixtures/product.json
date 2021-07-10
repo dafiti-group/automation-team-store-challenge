@@ -1,0 +1,132 @@
+[
+  {
+    "model": "product.product",
+    "pk": 1,
+    "fields": {
+      "title": "Chinelo Adidas Adilette Shower Marinho",
+      "uri": "chinelo-adidas-adilette-shower-marinho",
+      "price": "99.90",
+      "details": "Origem: Nacional Tira: Larga e única Indicado para: Casual Composição: 100% EVA Cor predominante: Marinho Composição tira: Material sintético Peso aproximado: 390g o par n° 44-45",
+      "information": "SKU\tAD866SHM62BHD",
+      "category": 2,
+      "brand": 1
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 2,
+    "fields": {
+      "title": "Chinelo Adidas Adilette Aqua",
+      "uri": "chinelo-adidas-adilette-aqua",
+      "price": "114.76",
+      "details": "Produzido com material resistente, a peça no modelo slip-on conta com tecnologia que proporciona amortecimento leve. Ideal para aquela ducha pós-piscina ou passeio na hora do lazer.",
+      "information": "SKU\tAD866SHM18IGJ",
+      "category": 2,
+      "brand": 1
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 3,
+    "fields": {
+      "title": "Camiseta Billabong Coaster Azul-Marinho",
+      "uri": "camiseta-billabong-coaster-azul-marinho",
+      "price": "39.99",
+      "details": "Camiseta Billabong Coaster Azul-Marinho\r\nMarca: Billabong\r\nManga: Curta",
+      "information": "SKU\tBI808SRM64DRF",
+      "category": 7,
+      "brand": 3
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 4,
+    "fields": {
+      "title": "Camiseta Calvin Klein Masculina NY City",
+      "uri": "camiseta-calvin-klein-masculina-ny-city",
+      "price": "99.99",
+      "details": "Camiseta Calvin Klein Jeans Masculina NY City 1978 Cinza MesclaCamiseta Calvin Klein na cor cinza mescla.Linha: Calvin Klein Jeans.Modelagem: Regular Fit.Gola redonda.Logo da marca estampado em preto na altura do tórax.",
+      "information": "SKU\tCA957APM88GZR",
+      "category": 7,
+      "brand": 4
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 5,
+    "fields": {
+      "title": "Calça Jeans Colcci Skinny Felipe Azul-Marinho",
+      "uri": "calca-jeans-colcci-skinny-felipe-azul-marinho",
+      "price": "139.99",
+      "details": "Calça Jeans Colcci Skinny Felipe Azul-Marinho\r\nFecho: Botão e Zíper\r\nBolsos: 5",
+      "information": "SKU\tCO515APM32ZPJ",
+      "category": 6,
+      "brand": 5
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 6,
+    "fields": {
+      "title": "Chuteira Nike Tiempo Legend 8 Academy",
+      "uri": "chuteira-nike-tiempo-legend-8-academy",
+      "price": "389.99",
+      "details": "TOQUE LENDÁRIO;A chuteira Nike Tiempo Legend 8 Academy TF dá o toque lendário de couro de bezerro e acrescenta uma sola de borracha aderente para tração multidirecional;",
+      "information": "SKU\tNI288ACM04IVB",
+      "category": 16,
+      "brand": 9
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 7,
+    "fields": {
+      "title": "Tênis Puma Disperse Xt Men'S Preto",
+      "uri": "tenis-puma-disperse-xt-mens-preto",
+      "price": "309.99",
+      "details": "Tênis Puma Disperse Xt Men'S Preto\r\nBico: Redondo",
+      "information": "SKU\tPU493SCM80SED",
+      "category": 20,
+      "brand": 10
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 8,
+    "fields": {
+      "title": "Moletom Flanelado Fechado Element Fech",
+      "uri": "moletom-flanelado-fechado-element-fech",
+      "price": "179.99",
+      "details": "Moletom Flanelado Fechado Element Fech 92 Preto\r\nManga: Longa",
+      "information": "SKU\tEL809SRF72ARR",
+      "category": 17,
+      "brand": 6
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 9,
+    "fields": {
+      "title": "Carteira John John Masculina Couro Slim",
+      "uri": "carteira-john-john-masculina-couro-slim",
+      "price": "139.99",
+      "details": "Carteira John John Masculina Couro Slim Logo PretaCarteira John John camuflada na cor preta em couro. Compartimento para notas forrado internamente em preto.",
+      "information": "SKU\tJO964APM54VUR",
+      "category": 12,
+      "brand": 7
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 10,
+    "fields": {
+      "title": "Vestido Adidas Racer Preto",
+      "uri": "vestido-adidas-racer-preto",
+      "price": "219.90",
+      "details": "Faça do seu jeito. Sonhe grande. E não se preocupe com o que os outros vão pensar.",
+      "information": "SKU\tAD866APF90KFH",
+      "category": 10,
+      "brand": 1
+    }
+  }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "model": "product.brand",
+        "pk": 1,
+        "fields": {
+            "name": "Adidas",
+            "uri": "adidas"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 2,
+        "fields": {
+            "name": "Asics",
+            "uri": "asics"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 3,
+        "fields": {
+            "name": "Billabong",
+            "uri": "billabong"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 4,
+        "fields": {
+            "name": "Calvin Klein",
+            "uri": "calvin-klein"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 5,
+        "fields": {
+            "name": "colcci",
+            "uri": "colcci"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 6,
+        "fields": {
+            "name": "Element",
+            "uri": "element"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 7,
+        "fields": {
+            "name": "John John",
+            "uri": "john-john"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 8,
+        "fields": {
+            "name": "M. Officer",
+            "uri": "m-officer"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 9,
+        "fields": {
+            "name": "Nike",
+            "uri": "nike"
+        }
+    },
+    {
+        "model": "product.brand",
+        "pk": 10,
+        "fields": {
+            "name": "Puma",
+            "uri": "puma"
+        }
+    }
+]
