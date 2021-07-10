@@ -1,0 +1,64 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "password": "pbkdf2_sha256$260000$BH2JaW4rgmirKM6yYLyBKW$TsVP58R6CpM2nDsMO4GIMh+9XRps7j/yKynnygIJhdk=",
+      "first_name": "Maria",
+      "last_name": "Santos",
+      "email": "admin@gmail.com",
+      "status": "confirmed",
+      "is_superuser": 1,
+      "is_staff": 1
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "username": "joao_oliveira",
+      "password": "pbkdf2_sha256$260000$BH2JaW4rgmirKM6yYLyBKW$TsVP58R6CpM2nDsMO4GIMh+9XRps7j/yKynnygIJhdk=",
+      "first_name": "João",
+      "last_name": "Oliveira",
+      "email": "joao@gmail.com",
+      "status": "confirmed"
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 3,
+    "fields": {
+      "username": "creuza_silva",
+      "password": "pbkdf2_sha256$260000$BH2JaW4rgmirKM6yYLyBKW$TsVP58R6CpM2nDsMO4GIMh+9XRps7j/yKynnygIJhdk=",
+      "first_name": "Creuza",
+      "last_name": "Silva",
+      "email": "creuza@gmail.com",
+      "status": "confirmed"
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "username": "jose_cruz",
+      "password": "pbkdf2_sha256$260000$BH2JaW4rgmirKM6yYLyBKW$TsVP58R6CpM2nDsMO4GIMh+9XRps7j/yKynnygIJhdk=",
+      "first_name": "José",
+      "last_name": "da Cruz",
+      "email": "jose@gmail.com",
+      "status": "confirmed"
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 5,
+    "fields": {
+      "username": "margarida_lima",
+      "password": "pbkdf2_sha256$260000$BH2JaW4rgmirKM6yYLyBKW$TsVP58R6CpM2nDsMO4GIMh+9XRps7j/yKynnygIJhdk=",
+      "first_name": "Margarida",
+      "last_name": "Lima",
+      "email": "margarida@gmail.com",
+      "status": "confirmed"
+    }
+  }
+]

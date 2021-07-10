@@ -1,0 +1,218 @@
+[
+  {
+    "model": "product.category",
+    "pk": 1,
+    "fields": {
+      "department": 1,
+      "name": "Botas",
+      "uri": "botas"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 2,
+    "fields": {
+      "department": 1,
+      "name": "Chinelos",
+      "uri": "chinelos"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 3,
+    "fields": {
+      "department": 1,
+      "name": "Sapatênis",
+      "uri": "sapatenis"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 4,
+    "fields": {
+      "department": 1,
+      "name": "Sapatilhas",
+      "uri": "sapatilhas"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 5,
+    "fields": {
+      "department": 1,
+      "name": "Tênis",
+      "uri": "tenis"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 6,
+    "fields": {
+      "department": 2,
+      "name": "Calças Jeans",
+      "uri": "camisetas"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 7,
+    "fields": {
+      "department": 2,
+      "name": "Camisetas",
+      "uri": "camisetas"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 8,
+    "fields": {
+      "department": 2,
+      "name": "Moletom",
+      "uri": "moletom"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 9,
+    "fields": {
+      "department": 2,
+      "name": "Polos",
+      "uri": "polos"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 10,
+    "fields": {
+      "department": 2,
+      "name": "Vestidos",
+      "uri": "vestidos"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 11,
+    "fields": {
+      "department": 3,
+      "name": "Bolsas",
+      "uri": "bolsas"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 12,
+    "fields": {
+      "department": 3,
+      "name": "Carteiras",
+      "uri": "carteiras"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 13,
+    "fields": {
+      "department": 3,
+      "name": "Relógios",
+      "uri": "relogios"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 14,
+    "fields": {
+      "department": 3,
+      "name": "Bonés",
+      "uri": "bones"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 15,
+    "fields": {
+      "department": 3,
+      "name": "Cintos",
+      "uri": "cintos"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 16,
+    "fields": {
+      "department": 4,
+      "name": "Chuteiras",
+      "uri": "chuteiras"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 17,
+    "fields": {
+      "department": 4,
+      "name": "Blusão",
+      "uri": "blusao"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 18,
+    "fields": {
+      "department": 4,
+      "name": "Relógio Esportivo",
+      "uri": "relogio-esportivo"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 19,
+    "fields": {
+      "department": 4,
+      "name": "Roupas de Academia",
+      "uri": "roupas-de-academia"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 20,
+    "fields": {
+      "department": 4,
+      "name": "Tênis Esportivo",
+      "uri": "tenis-esportivo"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 21,
+    "fields": {
+      "department": 5,
+      "name": "Acessórios de cabelo",
+      "uri": "acessorios-de-cabelo"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 22,
+    "fields": {
+      "department": 5,
+      "name": "Maquiagem",
+      "uri": "Maquiagem"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 23,
+    "fields": {
+      "department": 5,
+      "name": "Perfumes",
+      "uri": "perfumes"
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 24,
+    "fields": {
+      "department": 5,
+      "name": "Protetor solar",
+      "uri": "protetor-solar"
+    }
+  }
+]
