@@ -11,6 +11,7 @@ djangorestframework = "*"
 black = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
