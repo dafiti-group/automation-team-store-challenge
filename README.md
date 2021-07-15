@@ -10,33 +10,33 @@
 
 This project was made using pipenv, you can use the command above to start the virtual environment and after run the second command to install all the packages in Pipfile.lock
 
-'''
+```
 pipenv shell
 pipenv sync 
-'''
+```
 
 2. Running the aplication
 
-After running the pipenv sync, use the commands to start the django server
+After running the pipenv sync, use the commands to start the django server, in that link you can use the CRUD.
 Obs. the user for django admin is chris, and password 123
 
-'''
+```
 cd mysite
 python manage.py migrate
 python manage.py runserver
 http://127.0.0.1:8000/shoes/
-'''
+```
 
 3. Start the Vue app
 
-to start Vue, open a cmd terminal and use the commands above.
+to start Vue, open a cmd terminal and use the commands above, the Vueapp its only to view the data in database.
 Obs. it is required the node.js is installed
 
-'''
+```
 cd vueapp\vuedjangorest
 npm run serve
 http://localhost:8080/
-'''
+```
 
 ## Packages
 
@@ -66,18 +66,18 @@ http://localhost:8080/
 
 *Example:*
 
-'''
+```
 http://127.0.0.1:8000/shoes/{id}
-'''
+```
 
 ### API POST
 
-'''
+```
     "modelo": "testes", <- This field is required
     "status": "",
     "data_de_lancamento": "",
     "marca": "test",  <- This field is required
     "quantidade": 
-'''
+```
 
 
